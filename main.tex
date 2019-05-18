@@ -11,9 +11,17 @@
 \usepackage{xcolor}
 \usepackage[unicode]{hyperref}
 \usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{tikz}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
 \setlength{\cftsubsecnumwidth}{3em}% Set length of number width in ToC for \subsection
 \setlength{\cftsubsubsecnumwidth}{4em}% Set length of number width in ToC for \subsubsection
-
+\author{}
 %\author{Richard Zvonek}
 \title{Vypracované otázky ke státní závěrečné zkoušce \\VŠB-TUO FEI}
 
@@ -29,7 +37,8 @@ Tento dokument byl vytvořen téměř výhradně za pomocí následujících web
 \item \url{http://szz.kajfosz.cz/}
 \item \url{http://lucie.zolta.cz/}
 \end{enumerate}
-Drtivá většina textu byla z těchto stránek převzata. 
+Drtivá většina textu byla z těchto stránek převzata.\\
+Aktuální verze tohoto dokumentu je dostupná zde:\\ \url{https://www.overleaf.com/read/vhjnptstqcxf}
 \end{center}
 \newpage
 \tableofcontents
@@ -648,24 +657,276 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 
 \subsection{Množiny, relace, funkce}
 \subsubsection{Množina}
+\begin{itemize}
+\item Souhrn předmětů (prvků) chápaných jako celek/ Kolekce vzájemně odlišitelných objektů - prvků.
+\item Definice výčtem x charakteristickou vlastností - M = ${1,2,3}$, $M = {x\in R; x<4}$
+\item Na pořadí nezáleží, duplicity nejsou možné ${1,2,2}={2,1}$,${1,2}={2,1}$
+\item Velikost = $|X|$; $X = {1,2,2}$; $|X| = 2$
+\begin{itemize}
+\item Nekonečná x Konečná
+\item Prázdná množina = $\varnothing ,|\varnothing | = 0 != {\varnothing }, |{\varnothing }| = 1$
+\end{itemize}
+\item Prvek $x$ náležící do množiny M značíme $x \in M$, čteme prvek x náleží do množiny M
+\item Podmnožina P množiny M = všechny prvky množiny P jsou obsaženy v množině M (značíme $\subseteq$ )
+\begin{itemize}
+\item $\forall  A: \varnothing  \subseteq  A$
+\item $M\subseteq M$
+\item $P={1}, M={1,2} \rightarrow P\subseteq M$
+\end{itemize}
+\item Operace na množinách
+\begin{itemize}
+\item \textbf{Průnik} $\rightarrow$ $M \cap N$ = bude obsahovat prvky, které se vyskytují v M i v N
+\item \textbf{Sjednocení} $\rightarrow$ $M \cup N$ = bude obsahovat prvky, které se vyskytují v M nebo v N (tzn. i ty co jsou v obou)
+\item \textbf{Rozdíl} $\rightarrow$ $M - N$ = bude obsahovat prvky, které jsou v M, ale nejsou v N
+\item \textbf{Doplněk} $\rightarrow$ $M'$ = všechny prvky z universa, které M neobsahuje
+\item \textbf{Kartézský součin } $\rightarrow$ $M x N$ = bude obsahovat uspořádané dvojice - první člen z M druhý z N
+\item \textbf{Potenční množina $2^M$} -
+\end{itemize}
+\end{itemize}
+
 \subsubsection{Relace}
+
+\begin{itemize}
+\item Libovolný vztah mezi skupinou prvků jedné nebo více množin
+\item Klasifikace dle arity - unární, binární, ternární,... n-ární - množina uspořádaných n-tic
+\item Binární relace = množina uspořádaných dvojic, např. R = {(a,a),(b,b),(c,c)}
+\item U binární relace je možno definovat vlastnosti jako je reflexivita, symetrie, antisymetrie, tranzitivita
+\item Zobrazení z množiny X do množiny Y je relace R $\subseteq  X \times Y $, kde platí, že pro každý prvek $x \in X$ existuje právě jeden prvek $y \in Y$ tak že $(x, y) \in R$.
+\end{itemize}
+\paragraph{Binární relace}
+\begin{itemize}
+\item \textbf{Reflexivita} = každý prvek z množiny je v relaci sám se sebou
+\begin{itemize}
+\item Příkladem reflexivní relace je identita, relace "být menší nebo rovno", relace dělitelnosti, atd.
+\end{itemize}
+\item \textbf{Ireflexivita} = žádný prvek z množiny není v relaci sám se sebou
+\begin{itemize}
+\item Příkladem ireflexivní relace je relace "být menší než"
+\end{itemize}
+\item \textbf{Symetrie} = pokud je prvek a v relaci s b, pak je b v relaci s a; (a,b) $\rightarrow$ (b,a)
+\begin{itemize}
+\item Příkladem symetrické relace je identita, nerovnost nebo vlastnost typu "mít stejné znaménko"
+\end{itemize}
+\item \textbf{Antisymetrie} = pokud je (a,b) i (b,a) pak musí platit, že a = b
+\begin{itemize}
+\item Příkladem antisymetrické relace je relace "být menší nebo rovno".
+\end{itemize}
+\item \textbf{Asymetrie} = silná antisymetrie = pokud je prvek a v relaci s b, pak b v relaci s a není; (a,b) $\rightarrow$ !(b,a)
+\begin{itemize}
+\item Příkladem asymetrické relace jsou relace "nerovno", "být menší než" nebo "být větší než".
+\end{itemize}
+\item \textbf{Tranzitivita} = pokud existuje (a,b) a (b,c) pak existuje i (a,c)
+\begin{itemize}
+\item Příkladem tranzitivní relace je opět relace "být menší nebo rovno", identita, či relace "být příbuzný" na množině lidí.
+\end{itemize}
+\item \textbf{Úplnost} - Pro každou dvojici platí, že existuje buď (a,b) nebo (b,a) (nebo i obojí)
+\begin{itemize} 
+\item Příkladem úplné relace je například relace $\leq$ na libovolné číselné  množině.
+\end{itemize}
+\end{itemize}
+
 \subsubsection{Funkce}
+\begin{itemize}
+\item Funkce je název pro zobrazení z nějaké množiny M do množiny čísel (většinou reálných nebo komplexních), nebo do vektorového prostoru
+\item Alt.: Funkce na množině $M \subset  R$ je předpis, který každému číslu z množiny D přiřazuje právě jedno R.
+\item Množinu M nazvýváme Definičním oborem funkce a R nazýváme Oborem hodnot funkce.
+\item U funkcí můžeme rozhodovat o mnohých vlastnostech (spíše záležitost matematiky ale co)
+\begin{itemize}
+\item Monotónnost funkce - určuje zda funkce v daném intervalu klesá či stoupá
+\item Sudá funkce - symetrická podle osy Y $\rightarrow$ f(x) = -f(x)
+\item Lichá funkce - symetrická podle osy X a Y $\rightarrow$ -f(x) = f(-x)
+\item Prostá funkce - hodnoty pro různá x z definičního oboru se vždy liší; funkce v celém definičním oboru je stále rostoucí, nebo stále klesající
+\item omezenost
+\item lokální/globální minima/maxima
+\end{itemize}
+\end{itemize}
 
 \subsection{Výroková logika, predikátová logika 1. řádu}
 \subsubsection{Výroková logika}
+\begin{itemize}
+\item \textbf{Výrok} - "Jana zmokla" = atomický výrok $\rightarrow$ nedá se rozložit
+\item \textbf{Složený výrok} - "Jestliže pršelo, Jana zmokla" - rozložitelný na atomické výroky "Pršelo" a "Jana zmokla"
+\item \textbf{Logické spojky} - spojují atomické výroky do složených = $\lnot ,\wedge ,\vee ,\rightarrow,\leftrightarrow$
+\item \textbf{Formule} = atomické nebo složené výroky; Pravdivost formulí - vyhodnocují se binárně $(0 \times 1) (T \times F)$
+\item Pravdivostní ohodnocení
+\begin{itemize}
+\item \textbf{Tautologie} - pravdivá ve všech ohodnoceních
+\item \textbf{Splnitelná} - existuje alespoň jedno pravdivé vyhodnocení
+\item \textbf{Kontradikce} - neexistuje ani jedno pravdivé vyhodnocení ( = není splnitelná)
+\item \textbf{Ekvivalence} = dvě formule jsou ekvivalentní, jestliže mají při stejném ohodnocení "v" stejnou pravdivostní hodnotu
+\end{itemize}
+\item Logické vyplývání - pokud jsou pravdivé předpoklady, pak i závěr je pravdivý - ověření pomocí rezoluční metody
+\end{itemize}
+Normálové formy - specifický tvar formule, který je ekvivalentní k původnímu
+\begin{itemize}
+\item DNF - Disjunktivní normálová forma - elementární konjunkce spojené disjunkcemi, př. $(p\wedge q)\vee (\lnot p\wedge r)\vee (p)$
+\item CNF/KNF - Konjunktivní normálová forma - elementární disjunkce spojené konjunkcemi, př. $(p\vee \lnot q)\wedge (\lnot p\vee r)\wedge (p)$
+\item Úplná K/D normálová forma - v každé části (konjunktu/disjunktu) se vyskytují všechny literály právě jednou, př. $(p\vee q\vee r)\wedge (\lnot p\vee \lnot q\vee r)$ = UKNF
+\end{itemize}
+
 \subsubsection{Predikátová logika}
+\begin{itemize}
+\item Zavedení proměnných
+\item \textbf{Universum} - Množina prvků ze kterých můžeme vybírat do proměnných
+\item \textbf{Valuace} - přiřazení prvků universa proměnným
+\item \textbf{Predikáty} - vrací pravda/nepravda
+\begin{itemize}
+\item Arita - nulární, unární - n-ární, popisují vlastnosti, či vztahy 0 - n proměnných
+\end{itemize}
+\item Kvantifikátory - $\forall x$ = pro všechny x platí, $\exists x$ = existuje alespoň jedno x, nelze je aplikovat na konstanty
+\item Formule predikátové logiky
+\begin{itemize}
+\item Atomické formule - mohou obsahovat konstanty (nulární fce), funkce, predikáty a rovnosti
+\item Jinak mohou obsahovat kvantifikátory, logické spojky
+\end{itemize}
+\item \textbf{Termy} - výrazy složené z proměnných, konstant a funkcí reprezentující prvky universa
+\item pomocné symboly = "(" + ")"
+\end{itemize}
 
 \subsection{Regulární jazyky, konečné automaty}
 \subsubsection{Regulární jazyky}
+\begin{itemize}
+\item Nejjednodušší formální jazyk. Formální jazyk je množina slov nad nějakou abecedou.
+\item \textbf{Abeceda} = neprázdná konečná množina symbolů/znaků
+\item \textbf{Slovo} = konečná posloupnost znaků z konkrétní abecedy
+\item \textbf{Jazyk} = množina (některých) slov tvořených symboly z dané abecedy
+\item \textbf{Délka slova} = počet symbolů, \textbf{prázdné slovo} = slovo o délce 0
+\item Zřetězení slov = $OST \cdot RAVA$ = $OSTRAVA$
+\item Operace na jazycích = sjednocení, průnik, doplněk, rozdíl, zřetězení, iterace
+\item Iterace jazyka = zřetězení libovolného počtu (0-n) slov z jazyka
+\item \textbf{Regulární jazyk} = prázdný jazyk + jazyk obsahující právě jeden znak z abecedy + jazyky vzniklé operacemi popsanými výše nad těmito jazyky
+\item Zrcadlový obraz slova w = w\^R je slovo w zapsané "pozpátku" AHOJ $\rightarrow$ JOHA
+\end{itemize}
+
 \subsubsection{Konečné automaty}
+\begin{itemize}
+\item Výpočetní model generující formální jazyky
+\item Popisuje velice jednoduchý počítač, který může být v jednom z několika stavů, mezi kterými přechází na základě symbolů, které čte ze vstupu
+\item Konečný automat = deterministický = vždy je jasný počáteční stav, vždy je jasné do jakého stavu se přejde při daném vstupu, vždy jsou jasné přijímací stavy.
+\item Formálně je konečný automat definován jako uspořádaná pětice ($Q, \Sigma, \delta, q_0, F$) (názvy se mohou lišit)
+\begin{itemize}
+\item $Q$ = neprázdná množina stavů
+\item $\Sigma$ = neprázdná množina vstupních symbolů (abeceda)
+\item $\delta$ = pravidla přechodů mezi stavy (pro každý stav, n pravidel (n=počet symbolů v abecedě))
+\item $q_0$ = počáteční stav (právě jeden)
+\item $F$ = množina přijímacích stavů
+\end{itemize}
+\end{itemize}
+
+% http://madebyevan.com/fsm/
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (19.6,-19.8) circle (3);
+\draw (19.6,-19.8) node {$1$};
+\draw [black] (19.6,-19.8) circle (2.4);
+\draw [black] (35.5,-19.8) circle (3);
+\draw (35.5,-19.8) node {$2$};
+\draw [black] (19.6,-35.2) circle (3);
+\draw (19.6,-35.2) node {$3$};
+\draw [black] (35.5,-35.2) circle (3);
+\draw (35.5,-35.2) node {$4$};
+\draw [black] (35.5,-35.2) circle (2.4);
+\draw [black] (48.8,-26.5) circle (3);
+\draw (48.8,-26.5) node {$5$};
+\draw [black] (48.8,-26.5) circle (2.4);
+\draw [black] (22.6,-19.8) -- (32.5,-19.8);
+\fill [black] (32.5,-19.8) -- (31.7,-19.3) -- (31.7,-20.3);
+\draw (27.55,-20.3) node [below] {$a$};
+\draw [black] (38.18,-21.15) -- (46.12,-25.15);
+\fill [black] (46.12,-25.15) -- (45.63,-24.34) -- (45.18,-25.24);
+\draw (41.16,-23.65) node [below] {$b$};
+\draw [black] (51.714,-25.838) arc (130.53597:-157.46403:2.25);
+\draw (56.12,-28.5) node [right] {$b$};
+\fill [black] (51.1,-28.41) -- (51.24,-29.34) -- (52,-28.69);
+\draw [black] (17.219,-17.995) arc (260.56505:-27.43495:2.25);
+\draw (15.59,-13.26) node [above] {$b$};
+\fill [black] (19.58,-16.81) -- (20.21,-16.1) -- (19.22,-15.94);
+\draw [black] (19.6,-32.2) -- (19.6,-22.8);
+\fill [black] (19.6,-22.8) -- (19.1,-23.6) -- (20.1,-23.6);
+\draw (20.1,-27.5) node [right] {$a$};
+\draw [black] (33.35,-33.11) -- (21.75,-21.89);
+\fill [black] (21.75,-21.89) -- (21.98,-22.8) -- (22.68,-22.08);
+\draw (28.51,-27.02) node [above] {$a$};
+\draw [black] (35.5,-22.8) -- (35.5,-32.2);
+\fill [black] (35.5,-32.2) -- (36,-31.4) -- (35,-31.4);
+\draw (36,-27.5) node [right] {$a$};
+\draw [black] (46.29,-28.14) -- (38.01,-33.56);
+\fill [black] (38.01,-33.56) -- (38.95,-33.54) -- (38.41,-32.7);
+\draw (41.21,-30.35) node [above] {$a$};
+\draw [black] (32.5,-35.2) -- (22.6,-35.2);
+\fill [black] (22.6,-35.2) -- (23.4,-35.7) -- (23.4,-34.7);
+\draw (27.55,-34.7) node [above] {$b$};
+\draw [black] (22.6,-35.2) -- (32.5,-35.2);
+\fill [black] (32.5,-35.2) -- (31.7,-34.7) -- (31.7,-35.7);
+\draw [black] (12.2,-19.8) -- (16.6,-19.8);
+\fill [black] (16.6,-19.8) -- (15.8,-19.3) -- (15.8,-20.3);
+\end{tikzpicture}
+\end{center}
 
 \subsection{Algoritmy a algoritmické problémy, výpočetní modely}
 \subsubsection{Algoritmus}
+Zpracovává vstup a generuje výstup
+\begin{itemize}
+\item Řídící tok - sekvence vykonávání jednotlivých kroků, včetně větvení a cyklů
+\item Dva typy instrukcí - instrukce pracující s daty, instrukce ovlivňující řídící tok(větvení, cykly, návraty,...)
+\item Algoritmus je vykonáván strojem - např. reálný stroj, virtuální stroj, matematický model
+\item Stroj pracuje po krocích, v každém kroku se nějak změní konfigurace = popis celkového stroje(paměť, stav)
+\item Výpočet algoritmu - začíná se v počáteční konfiguraci, každý krok přejde do jiné konfigurace, výpočet končí v koncové konfiguraci
+\item Invarianta - podmínka, která musí být splněna vždy, na konkrétním místě v algoritmu
+\item např invarianta pro cyklus i=0;while(i<10){i++} je, že 0 >= i <= 10. Jelikož posledním krokem v cyklu bude, že se i nastaví na 10 a kdykoliv to je mimo, to do cyklu vůbec nespadne.
+\item pro každý řídící stav (vrchol grafu řídícího toku) lze určit invariantu
+\item Korektnost - Žádná nepovolená operace, výpočet je konečný, výstup odpovídá zadání.
+\end{itemize}
 \subsubsection{Výpočetní modely}
 
+\begin{itemize}
+\item idealizované modely počítače používané pro výpočet složitosti
+\item Definují množinu povolených operací
+\item Turingův stroj
+\begin{itemize}
+\item Church-Turingova teze = ke každému algoritmu existuje Turingův stroj
+\item Respektive pokud nelze problém popsat Turingovým strojem, není tento problém algoritmicky rozhodnutelný
+\item Formálně je Turingův stroj šestice
+\begin{itemize}
+\item Množina vnitřních stavů
+\item Konečná abeceda symbolů na pásce
+\item Konečná množina vstupních symbolů (podmnožina abecedy)
+\item počáteční stav
+\item Přechodová funkce vpravo, či vlevo
+\item Množina koncových stavů
+\end{itemize}
+\end{itemize}
+\item RAM stroj
+\begin{itemize}
+\item Z hlediska výpočetní síly ekvivalentní Turingovu stroji
+\end{itemize}
+\item Lambda kalkulus
+\item Konečný automat
+\end{itemize}
+
 \subsection{Algoritmicky nerozhodnutelné problémy}
-\subsection{Výpočetní složitost algoritmů, asymptotická notace}
+Pro rozhodovací problém P neexistuje žádný algoritmus. Tato problematika je zkoumána vědním oborem - Teorií vyčíslitelnosti. Každý algoritmus který je rozhodnutelný, lze zároveň přeložit do jazyka Turingova stroje.
+Příkladem takových to problémů je např. Problém zastavení
+\subsection{Výpočetní složitost algoritmů, asymptotická notace}\label{sec:uti_slozitost}
+\begin{itemize}
+\item U algoritmů řešíme zpravidla dva typy složitosti
+\begin{itemize}
+\item \textbf{Časovou složitost} - jak závisí doba výpočtu na množství vstupních dat
+\item \textbf{Paměťovou náročnost} - jak závisí množství použité paměti na množství vstupních dat
+\end{itemize}
+\item \textbf{Velikost vstupu} - hodnota udávající velikost vstupu - počet prvků v sekvenci, počet znaků v řetězci, atp.
+\item přesnou dobu výpočtu můžeme uvádět jako počet kroků nebo počet sekund
+\item Zpravidla se zaobíráme nejhorším případem, někdy je však vhodné se zaobírat i průměrným případem
+\item U funkce vyjadřující časovou složitost nám většinou stačí odhad - zanedbáme méně významné členy $a\cdot n^2+b \Rightarrow n^2$
+\end{itemize}
 \subsubsection{Asymptotická notace}
+\begin{itemize}
+\item Popisují jak rychle daná funkce roste
+\item $O(f)$ - množina všech funkcí, které rostou nejvýše tak rychle jako f
+\item $\Omega(f)$ – množina všech funkcí, které rostou alespoň tak rychle jako f
+\item $\Theta(f)$ – množina všech funkcí, které rostou stejně rychle jako f
+\end{itemize}
 \newpage
 \section{Architektury počítačů, Počítačové sítě}
 \subsection{Protokolová rodina TCP/IP a její vztah k referenčnímu modelu ISO‐OSI. Překlad síťových adres - NAT, IPv6 - specifika nové verze protokolu}
@@ -706,8 +967,8 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 \item Jedná se o překlad adres z vnitřní sítě na adresy vnější sítě (např. Internetu)
 \item Nemusíme mít na nějakou podsíť 1:1 adresy.
 \item Nevýhoda je, že to limituje komunikaci s internetem. Nebo když máme asymetrické směrování (vnitřní síť je propojena s vnější sítí přes víc než 1 router).
-\item Tyto údaje/překaldy si uchovává v NAT tabulce.
-\item Static vs Dynamic NAT -$\rightarrow$ manuálně prekonfigurované nebo využití dynamického poolu.
+\item Tyto údaje/překlady si uchovává v NAT tabulce.
+\item Static vs Dynamic NAT $\rightarrow$ manuálně překonfigurované nebo využití dynamického poolu.
 \end{itemize}
 
 \subsubsection{IPv6 - specifika nové verze protokolu}
@@ -789,7 +1050,7 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 \begin{itemize}
 \item Protokol aplikační vrstvy, používá se pro propojení klient-server pod protokolem TCP.
 \item Původně emulace terminálu u vzdáleného přístupu.
-\item Hlavní nevýhoda je, že přenos není šifrovaný -$\rightarrow$ díky tomu vznik SSH
+\item Hlavní nevýhoda je, že přenos není šifrovaný $\rightarrow$ díky tomu vznik SSH
 \item Dříve to bylo OK, nebyla potřeba moc bezpečnost, používal se na univerzitních sítích atp, ale dnes v dobách Internetu je to průser.
 \end{itemize}
 
@@ -1079,7 +1340,68 @@ Nejprimitivnější vyhledávání v poli. Jdeme od prvního prvku až k posledn
 \item Jelikož v každém kroku půlím pole a tou špatnou půlkou se vůbec nezabývám, tak se jedná o složitost $log_2(n)$.
 \end{itemize}
 \subsection{Algoritmy třídění – klasifikace, popis činnosti, neformální objasnění složitosti vybraných algoritmů}
-
+\subsubsection{Klasifikace}
+Dvě základní skupiny algoritmů jsou tzv. vnitřní a vnější řazení.
+\begin{enumerate}
+    \item Vnitřní
+    \begin{itemize}
+        \item Všechna data uložena v operační paměti a algoritmus k nim může libovolně přistupovat.
+    \end{itemize}
+    \item Vnější
+    \begin{itemize}
+        \item Ne všechna data jsou v paměti, nějaká část může být uložena na disku. V případě, že máme moc dat.
+    \end{itemize}
+\end{enumerate}
+Většina třídících algoritmů funguje na principu porovnávání dvou prvků. Některé ale fungují na jiném principu - př. counting sort, který počítá výskyty jednotlivých hodnot. Nebo radix sort.
+\subsubsection{Klasifikace algoritmů dle chování}
+\paragraph{Řazení výběrem}
+\begin{itemize}
+\item \textbf{Selection sort}
+\begin{itemize}
+\item V poli najdeme největší prvek a přesuneme na začátek.
+\item Tento prvek "vyřadíme" a hledáme nejvyšší prvek ve zbylém poli.
+\item Opakujeme dokud není pole sestupně seřazené.
+\item Složitost $n^2$
+\end{itemize}
+\end{itemize}
+\paragraph{Řazení vkládáním}
+\begin{itemize}
+\item \textbf{Insertion sort}
+\begin{itemize}
+\item Přesouvá prvky na správné místo.
+\item Takhle jdeme postupně od začátku pole až do konce a hledáme, kam ho správně zařadit.
+\item Ačkoliv je složitost $n^2$, tak u téměř seřazeného pole se blíží n. U polí s méně než 10 prvky je rychlejší než quick sort.
+\end{itemize}
+\end{itemize}
+\paragraph{Řazení záměnou}
+\begin{itemize}
+\item \textbf{Bubble sort}
+\begin{itemize}
+\item Porovnáva dva sousední prvky. Pokud je ten vlevo menší, tak je prohodí a postupuje dál. -$\rightarrow$ "probublává na povrch"
+\item Vnitřní cyklus se provede $(n-1) + (n-2) + (n-3) +.... = (n^2 - n)/2$ což je složitost $n^2$
+\end{itemize}
+\item \textbf{Heapsort}
+\begin{itemize}
+\item Základem je binární halda, jejíž základní vlastností je, že se chová jako prioritní fronta. Pokud z prioritní fronty postupně odebíráme prvky, tak je zřejmé, že tím dochází k jejich řazení.
+\end{itemize}
+\item \textbf{Quicksort}
+\begin{itemize}
+\item V poli zvolíme libovolný prvek tzv. pivot.
+\item Pole přeorganizujeme tak, aby na na jedné straně byly prvky větší a na druhé menší, než pivot.
+\item Tento postup opakujeme pro obě rozdělené strany, dokud nedojdeme k polím o velikosti 1.
+\item Při špatné volbě pivota (nejvyšší nebo nejnižší prvek) tak je složitost $n^2$, jelikož nedochází k dělení pole. Očekávaná složitost při správně volbě pivota je však $n \cdot log(n)$
+\end{itemize}
+\end{itemize}
+\paragraph{Řazení slučováním}
+\begin{itemize}
+\item \textbf{Merge sort}
+\begin{itemize}
+\item Pracuje na bázi DVOU už sestupně setřízených polí. Říkejme jim A a B, a pak pole C, které bude to nové mergnuté pole.
+\item Na vstupu je jedno pole, které merge sort sám rekurzivně dělí a sestupně seřadí.
+\item V každém kroku porovnáme první prvky a ten vyšší přesuneme na konec nového pole C.
+\item Tento postup opakujeme tak dlouho, dokud se jedno z polí nevyprázdní a pak ještě přesuneme zbytek toho pole do výsledného pole C.
+\end{itemize}
+\end{itemize}
 \subsection{Datové struktury – pole, seznam, fronta, zásobník, strom, graf}
 \subsubsection{Pole}
 \begin{itemize}
@@ -1087,19 +1409,16 @@ Nejprimitivnější vyhledávání v poli. Jdeme od prvního prvku až k posledn
 \item Problém s dynamickou alokací v některých jazycích - nutnost používat pointery.
 \item Je však jednoduché a tím pádem i rychlé, protože prvky jsou v paměti uloženy zasebou, zabírají všechny stejně místa a rychle se k nim přistupuje.
 \end{itemize}
-
 \subsubsection{Seznam}
 \begin{itemize}
 \item Jednotlivé prvky obsahují i ukazatel(referenci) na následující prvek. Poslední prvek ukazuje na NULL
 \item U obousměrného seznamu ukazatel(referenci) i na předcházející prvek. Posledni ukazuje na další NULL. První okazuje na předcházející NULL
 \end{itemize}
-
 \subsubsection{Fronta}
 \begin{itemize}
 \item Prvky se odebírají v pořadí v jakém přisli - FIFO (First In First Out)
 \item Většinou funkce - Put a Get. Dále ukazatele na první a poslední prvek (Head, Tail)
 \end{itemize}
-
 \subsubsection{Zásobník}
 \begin{itemize}
 \item Prvky se odebírají v opačném pořadí - LIFO (Last In First Out)
@@ -1135,22 +1454,163 @@ Nejprimitivnější vyhledávání v poli. Jdeme od prvního prvku až k posledn
 \newpage
 \section{Matematika}
 \subsection{Řešení soustav lineárních rovnic}
+V matematice a lineární algebře se jako soustava lineárních rovnic označuje množina lineárních rovnic. Většinou tyto rovnice obsahují více než jednu proměnnou. Řešením takovýchto rovnic je pak uspořádaná n-tice popisující hodnoty jednotlivých proměnných. Soustava nemusí mít žádné řešení, může mít určitý počet, či nekonečně mnoho řešení. \\
+Obecně lze jakoukoliv soustavu zapsat jako:
+\[\begin{matrix} a_{11}x_{1} & + & \cdots & a_{1n}x_{n} & = & b_1 & \\ \vdots & & \ddots & \vdots & & \vdots & \\ a_{m1}x_{1} & + & \cdots & a_{mn}x_{n} & = & b_m & \end{matrix}\]
+Jakoukoliv soustavu lze rovněž zapsat užitím matice. Počet řádků označuje počet rovnic, počet sloupců-1 označuje počet proměnných. Poslední sloupec obsahuje konstanty.
+\[\begin{pmatrix} a_{11}x_{1} & \cdots & a_{1n}x_{n} & b_1 & \\ \vdots & \ddots & \vdots & \vdots & \\ a_{m1}x_{1} & \cdots & a_{mn}x_{n} & b_m & \end{pmatrix}\]
+Některé rovnice v soustavě mohou být na sobě závislé, resp jedna může být lineární kombinací druhé. Např. 
+\[x + y = 1 \Leftrightarrow 2x + 2y = 2\]
+Takové to rovnice nám nepřidávají novou informaci a stačí nám jedna z nich. V opačném případě nazýváme rovnice lineárně nezávislé.
+atici neobsahující sloupec konstant budu označovat jako matici soustavy A samotný poslední sloupec je v podstatě vektor b, který přidáváme k matici soustavy a dostáváme tak rozšířenou matici soustavy A'. $A' = (A|b)$.
+\subsubsection{Počet řešení}
+Uvažujeme soustavu lineárně nezávislých rovnic.
+Frobeniova věta říká: "Soustava má řešení právě tehdy, když hodnost matice soustavy A je stejná jako hodnost rozšířené matice soustavy A' "
+Soustavy, kde je počet lineárně nezávislých rovnic větší než počet proměnných, nemají žádné řešení. Nazýváme je přeurčenými.
+Soustavy, kde počet proměnných je právě roven počtu rovnic, mají právě jedno řešení.
+A soustavy, kde je počet proměnných vyšší, než počet rovnic, mají nekonečně mnoho řešení. Přebytečné proměnné lze nahradit parametry a soustavu vyřešit s jejich užitím.
+\subsubsection{Metody řešení}
+\paragraph{Ekvivalentní operace}
+Existují 3 základní ekvivalentní operace, které používáme k řešení soustav lineárních rovnic. Tyto operace nemění výsledek rovnic, pouze je zaměňují za ekvivalentní a jednodušší rovnice.
+\begin{enumerate}
+\item Záměna pořadí rovnic
+\item Násobení obou stran rovnice nenulovým číslem
+\item Přičtení násobku rovnice k jiné rovnici (záporný násobek = odčítání)
+\end{enumerate}
+\paragraph{Gaussova eliminační metoda}
+\begin{enumerate}
+\item Zapíšeme koeficienty do rozšířené matice soustavy
+\item \textbf{Dopředná redukce} - Matici převedeme pomocí ekvivalentních řádkových úprav na schodovitý tvar.
+\item Aplikujeme Frobeniovu větu. Tím zjistíme počet řešení soustavy.
+\item \textbf{Zpětná substituce} - Ze schodovitého tvaru rozšířené matice sestavíme zpět soustavu rovnic, ze které snadno dopočítáme řešení soustavy. Postupujeme od poslední rovnice, která obsahuje nejméně neznámých, postupným dosazováním do „vyšších“ rovnic.
+\end{enumerate}
+\paragraph{Gauss-Jordanova metoda}
+Postup shodný s Gaussovou eliminační metodou, avšak nekončíme na schodkovém tvaru,ale pokračujeme do tzv. normovaného schodkového tvaru (A = I = jednotková matice)
+\begin{equation}
+\begin{bmatrix}[ccc|r]
+1 & 0 & 1 & 4\\ 
+0 & 1 & 1 & 0\\ 
+0 & 0 & 1 & 2
+\end{bmatrix} 
+\begin{matrix}
+-r_3\\ 
+-r_3\\ 
+~
+\end{matrix} 
+\mapsto
+\begin{bmatrix}[ccc|r]
+1 & 0 & 0 & 2\\ 
+0 & 1 & 0 & -2\\ 
+0 & 0 & 1 & 2
+\end{bmatrix}   
+\end{equation}
+
+\paragraph{Cramerovo pravidlo}
+Cramerovo pravidlo je vhodné především v případě, kdy chcete postup algoritmizovat, snadno se programuje. Řešit soustavu pomocí Cramerova pravidla ručně bývá obvykle složitější, než ji řešit Gaussovou eliminační metodou.\\
+Cramerovo pravidlo funguje pouze na čtvercových maticích A. Používá k výpočtu determinant matice. Nebudu dále popisovat.
 \subsection{Vektorový prostor}
+\subsubsection{Algebraické operace}
+Malé info co to je algebraická operace. Jedná se o zobrazení (většinou uvažujeme binární operaci), kdy každé uspořádané dvojici (a,b) z množiny A přiřazujeme určitý výsledek, také z množiny A.\\
+Například sčítání celých čísel je binární algebraická operace. Vezměme si dvojici (2,5). Operace sčítání přiřadí této dvojici rovněž prvek z množiny celých čísel - 7.
+\subsubsection{Vektorový prostor}Vektorový prostor (nebo též lineární prostor) je neprázdná množina V, jejíž prvky nazýváme vektory. Na této množině existují dvě algebraické operace: sčítání dvou vektorů(+) a násobení vektorů skalárem(•)\\
+Výsledkem sčítání vektorů je rovněž vektor - např. $(a_1,a_2) + (b_1,b_2) = (a_1+b_1,a_2+b_2)$\\
+Výsledkem násobení vektoru skalárem je rovněž vektor - např. $(a_1,a_2) \cdot b$ = $(a_1\cdot b,a_2\cdot b)$\\
+Při dokazování zda-li je těleso opravdu vektorovým prostorem, musíme ověřit 8 následujících axiomů (počet se liší v závislosti na literatuře)\\
+\begin{enumerate}
+\item Asociativní zákon pro sčítání $\rightarrow$ $\forall u,v,w \in \mathbb{V} : u + (v + w) = (u + v) + w$
+\item Existence nulového vektoru o $\rightarrow$ $\exists o \in \mathbb{V}, \forall u \in \mathbb{V} : u+o = o+u = u$
+\item Existence opačného vektoru -u k u $\rightarrow$ $\forall u \in \mathbb{V}, \exists (-u) \in \mathbb{V} : u+(-u) = -u+u=0$
+\item Komutativita sčítání $\rightarrow$ $\forall u,v \in \mathbb{V} : u+v = v+u$
+\item Násobení vektoru jedničkou ho nezmění $\rightarrow$ $\forall u \in \mathbb{V}:1\cdot u = u$
+\item Asociace násobení $\rightarrow$ $\forall \alpha, \beta \in \mathbb{R(C)},\forall u \in \mathbb{V}: \alpha \cdot (\beta \cdot u) = (\alpha \cdot \beta )\cdot u $
+\item Distributivita vzhledem ke sčítání $\rightarrow$ $\forall \alpha, \beta \in \mathbb{R(C)},\forall u \in \mathbb{V}: (\alpha + \beta) \cdot u = \alpha \cdot u + \beta \cdot u$
+\item Distributivita vzhledem k násobení $\rightarrow$ $\forall \alpha, \beta \in \mathbb{R(C)},\forall u \in \mathbb{V}:\alpha \cdot (a + b) = \alpha \cdot a + \alpha \cdot b$
+\end{enumerate}
+Formálně je tedy vektorový prostor definován jako čtveřice - Množina V (zpravidla $R^2$), Množina T (zpravidla R), operace sčítání, operace násobení. V tomto prostoru musí platit výše uvedené pravidla.\\
+Mezi jednotlivými prostory je definováno sčítání prostorů a jejich průnik (nenulový, jelikož každý vektorový prostor obsahuje nulový prvek).\\
+Následující obrázek graficky popisuje algebraické operace sčítání dvou vektorů a násobení vektoru skalárem (zleva).
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=10cm]{mat_vektory.JPG}
+    \caption{(a) Sčítání vektorů (b) Násobení skalárem}
+    \label{fig:mat_vektory}
+\end{figure}
+
 \subsection{Lineární zobrazení}
+Zobrazení mezi vektorovými prostory X a Y tak, že zůstanou zachovány operace součtu a součinu skalárem. Patří zde lineární funkce a také Derivace a Integrace.\\
+Nechť $U, V$ jsou vektorové prostory. Zobrazení $A:U\rightarrow V$ se nazývá lineární zobrazení(operátor), jestliže pro každé dva vektory $u,v \in U$ a skalár $\alpha$ platí:
+\begin{enumerate}
+    \item $A \cdot (u+v) = A\cdot u + A\cdot v$
+    \item $A\cdot (\alpha \cdot u) = \alpha \cdot A \cdot (u)$ 
+\end{enumerate}
+\textbf{Superpozice} = pokud známe už výsledky x a y, tak když chceme počítat f(x+y), stačí sečíst x a y (vyplývá z definice lineárního zobrazení)\par
+Nejrychlejší způsob jak zjistit zda zobrazení NENÍ lineární je podívat se, zda-li po dosazení za všechny proměnné 0, nám vyjde 0. (jelikož 0+0 = 0)... pokud ne tak to není lineární zobrazení, pokud jo, musíme dále ověřovat.\par
+Každé lineární zobrazení je funkcí, ne každá funkce je linární zobrazení. Každé lineární zobrazení lze zapsat maticí (urychluje práci, zapíšu ASAP).\\
+\textbf{Zobrazení} = mapuje obraz z množiny M na vzor z množiny N\\
+\textbf{Definiční obor} = množina všech vzorů\\
+\textbf{Obor hodnot} = množina všech obrazů
+\subsubsection{Nulový prostor/Jádro zobrazení}
+Jedná se o takovou podmnožinu definičního oboru, tak že A je zobrazeno na nulový vektor. Resp. množina vzorů, jejichž obrazy jsou nulové vektory.
 \subsection{Derivace reálné funkce}
+Derivace nějaké funkce je změna (růst či pokles) obrazu této funkce v poměru k (ideálně) nekonečně malé změně jejích argumentů. Opačným procesem k derivování je integrování. V určitém bodě se dá derivace znázornit jako směrnice tečny (úhel) a udává nám jak se funkce mění v bezprostředním okolí. Nulová derivace v bodě znamená, že tečna je vodorovná s osou x a funkce tedy neklesá ani neroste. Jedná se o tzv. "stacionární bod", který může a nemusí mýt lokálním extrémem.\par
+Derivaci můžeme derivovat znova a dostat tzv. druhou derivaci, obecně pak derivaci vyššího řádu. Logicky popisuje změnu první derivace v bezprostředním okolí. Pomocí první derivace hledáme stacionární body, potažmo jestli funkce v daném bodě klesá, či roste. Pomocí druhé derivace můžeme zjistit zda-li je stacionární bod lokálním minimem ($f'= 0$ a $f''>0$), či maximem ($f'= 0$ a $ f''<0$). Obecně sama o sobě druhá derivace udává zda-li je fce konvexní $(f''>0)$ či konkávní $(f''<0)$.
+
+\renewcommand{\arraystretch}{1.2} 
+\begin{table}[ht]
+\centering
+\begin{tabular}{llll}
+\hline
+Funkce              & Definiční obor funkce & Derivace                          & Def. obor první derivace       \\
+\hline
+$\displaystyle f(x) = c$          & $\mathbb{R}$          				& $\displaystyle f'(x) = 0$                       & $\displaystyle \mathbb{R}$                   \\
+$\displaystyle f(x) = x^c$        & Záleží na $c$         				& $\displaystyle f'(x) = c \cdot x^{c-1}$         & Záleží na $c$                  \\
+$\displaystyle f(x) = x$          & $\mathbb{R}$          				& $\displaystyle f'(x) = 1$                       &                                \\
+\hline
+Mocniny, logaritmy  &                       &                                   &                                \\
+\hline
+$\displaystyle f(x) =c^x $        & $\displaystyle \mathbb{R}$          & $\displaystyle f'(x) = c^x \cdot ln(c)$         & $\displaystyle \mathbb{R}$                   \\
+$\displaystyle f(x) = e^x$        & $\displaystyle \mathbb{R}$          & $\displaystyle f'(x) = e^x$                     & $\displaystyle \mathbb{R}$                   \\
+$\displaystyle f(x) = log_a(x)$   & $\displaystyle x>0$                 & $\displaystyle f'(x) = \frac{1}{x\cdot ln(a))}$ & $\displaystyle x > 0, a \neq 1, a>0$         \\
+$\displaystyle f(x) =ln(x) $      & $\displaystyle x>0$                 & $\displaystyle f'(x) = \frac{1}{x}$             & $\displaystyle x > 0$                        \\
+\hline
+Goniometrické funkce &                       &                                   &                                \\
+\hline
+$\displaystyle f(x) = sin(x)$     & $\displaystyle \mathbb{R}$          & $\displaystyle f'(x) = cos(x)$                  & $\displaystyle \mathbb{R}$                   \\
+$\displaystyle f(x) = cos(x)$     & $\displaystyle \mathbb{R}$          & $\displaystyle f'(x) = -sin(x)$                 & $\displaystyle \mathbb{R}$                   \\
+$\displaystyle f(x) = tg(x)$      & $\displaystyle \mathbb{R}$          & $\displaystyle f'(x) = \frac{1}{cos^2(x)}$      & $\displaystyle \mathbb{R} - \frac{k \pi}{2}$ \\
+$\displaystyle f(x) = cotg(x)$    & $\displaystyle \mathbb{R} - k \pi$  & $\displaystyle f'(x) = - \frac{1}{sin^2(x)}$    & $\displaystyle \mathbb{R} - \frac{k \pi}{2}$ \\
+\hline
+\end{tabular}
+\caption{Derivace některých elementárních funkcí}
+\label{tab:elementarniDerivace}
+\end{table}
+\renewcommand{\arraystretch}{1} 
 \subsection{Určitý a neurčitý integrál}
+\begin{itemize}
+\item Spolu s derivací tvoří dvě hlavní operace matematické analýzy. Pojem integrálu je zobecněním pojmů jako plocha, objem, součet či suma.
+\item Mějme funkci \textit{f} reálné proměnné x na intervalu [a, b]. $\displaystyle A = \int_a^b f(x) \mathrm{d}x$
+\item Pod pojmem (určitý) integrál rozumíme obsah plochy ve dvojrozměrné rovině, který je omezen grafem funkce \textit{f}, osou \textit{x} a svislými přímkami \textit{x = a} a \textit{x = b}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width = 5cm]{Integral_as_region_under_curve.pdf}
+    \caption{Ukázka určitého integrálu}
+    \label{fig:Integral_as_region_under_curve}
+\end{figure}
+\item Neurčitý integrál je takový, který není "omezený" body a,b. Hledáme množinu funkcí, které když zderivujeme získáme původní funkci. Tuto množinu nazýváme Primitivní funkce \textit{F}. ( $\displaystyle F'(x) = f(x)$ ) a značíme $\displaystyle \int f(x)dx = F(x)+c$ 
+\end{itemize}
+
 \subsection{Kombinatorické výběry}
 \renewcommand{\arraystretch}{2} 
 \begin{table}[ht]
 \centering
 \begin{tabular}{l|l|l}
 \hline
-\multirow{4}{*}{Uspořádané výběry}   & Variace bez opakování   & \(V(k, n) = \frac{n!}{(n-k)!}\) \\
-                                     & Variace s opakováním    & \(V’(k, n) = n^k\) \\
-                                     & Permutace bez opakování & \(P(n) = V(n, n) = n!\) \\
-                                     & Permutace s opakováním  & \(P’(n_1,n_2,...,n_k) = \frac{ n!}{n_1!\cdot{}n_2!\cdot{}...\cdot{}n_k!}\) \\
-\multirow{2}{*}{Neuspořádané výběry} & Kombinace bez opakování & \(C(k, n) = \frac{n!}{(n-k)!\cdot k!}\) \\
-                                     & Kombinace s opakováním  & \(C’(k, n) = {n+k-1\choose k}\) \\ 
+\multirow{4}{*}{Uspořádané výběry}   & Variace bez opakování   & $\displaystyle V(k, n) = \frac{n!}{(n-k)!}$ \\
+                                     & Variace s opakováním    & $\displaystyle V'(k, n) = n^k$ \\
+                                     & Permutace bez opakování & $\displaystyle P(n) = V(n, n) = n!$ \\
+                                     & Permutace s opakováním  & $\displaystyle P'(n_1,n_2,...,n_k) = \frac{ n!}{n_1!\cdot{}n_2!\cdot{}...\cdot{}n_k!}$ \\
+\multirow{2}{*}{Neuspořádané výběry} & Kombinace bez opakování & $\displaystyle C(k, n) = \frac{n!}{(n-k)!\cdot k!}$ \\
+                                     & Kombinace s opakováním  & $\displaystyle C'(k, n) = \genfrac(){0pt}{0}{n+k-1}{k}$ \\ 
 \hline
 \end{tabular}
 \caption{Vzorce kombinatorických výběrů}
@@ -1162,7 +1622,7 @@ Nejprimitivnější vyhledávání v poli. Jdeme od prvního prvku až k posledn
 \item Permutace - Uspořádání n prvků, nevybíráme. Opakování = některý prvek je v množině vícekrát, ale nerozlišujeme mezi nimi.(permutace = variace kde n = k)
 \item Příklad bez opakování = počet různého uspořádání slova "ABC"| s opakováním = počet různého uspořádání slova "AAC".
 \item Kombinace - Variace, přičemž nezáleží na pořadí = kolika možnostmi vybrat neuspořádanou k-tici z n. (1,2) = (2,1)
-\item Kombinační číslo - udává počet kombinací, značíme $\binom{n}{k}$, čteme "n nad k". Také se nazývá binomický koeficient.
+\item Kombinační číslo - udává počet kombinací, značíme $\displaystyle \binom{n}{k}$, čteme "n nad k". Také se nazývá binomický koeficient.
 \item Pascalův trojúhelník - trojúhelník kde číslo na dalším řádku bude součtem sousedních čísel o řádek výše. Odvozený z kombinační věty.
 \end{itemize}
 
@@ -1231,11 +1691,68 @@ Nejprimitivnější vyhledávání v poli. Jdeme od prvního prvku až k posledn
 \newpage
 \section{Úvod do teoretické informatiky}
 \subsection{Interpretace a modely v predikátové logice 1. řádu. Rezoluční metoda}
+\subsubsection{Interpretace a modely}
+\paragraph{For experts}
+\begin{itemize}
+\item \textbf{Interpretace} = každému predikátovému symbolu je určena nějaká n-ární relace z daného Universa
+\item \textbf{Valuace} = při dané intepretaci I s universem U je valuace funkce, přiřazující jednotlivým proměnným prvky z universa
+\begin{itemize}
+\item Pravdivostní hodnoty tedy přiřazujeme při dané interpretaci s daným universem a při dané valuaci
+\end{itemize}
+\item \textbf{Model} = Valuace při dané intepretaci, ve které je daná věta pravdivá
+\end{itemize}
+\paragraph{For dummies}
+\begin{itemize}
+\item \textbf{Interpretace} = tělo predikátu, co ten predikát vyhodnocuje
+\item \textbf{Valuace} = přiřazení konkrétních hodnot do proměnných
+\item \textbf{Model} = když je interpretace při nějaké valuace pravdivá, tak se jedná o model
+\end{itemize}
+\subsubsection{Rezoluční metoda}
+\begin{enumerate}
+\item Převod na CNF
+\item Každá elementární disjunkce je klauzulí
+\item Jedná se o důkaz sporem $\rightarrow$ znegujeme závěr a hledáme prázdnou klausuli = spor
+\item Jednoliterální klauzule přiřazujeme k jiným klauzulím obsahující opačnou klauzuli a vyvozujeme nové klauzule (b a !b+c $\Rightarrow$ c)
+\item Hledáme tak dlouho dokud jdou nalézt nové klauzule, nebo dokud nenajdeme prázdnou klauzuli $\perp$
+\end{enumerate}
 \subsection{Nedeterministické konečné automaty, uzavřenost třídy regulárních jazyků vůči různým operacím na jazycích}
+\subsubsection{Nedeterministické automaty}
+\begin{itemize}
+\item Oproti deterministickým automatům mohou mít více počátečních stavů
+\item Oproti DKA pro každý stav nemusí existovat právě tolik pravidel, kolik je velikost množiny přijímaných symbolů. Může jich být více (opakovat se), či méně, či mohou přijímat prázdné slovo.
+\end{itemize}
+\subsubsection{Uzavřenost regulárních jazyků}
+Dříve bylo definováno co to regulární jazyk je. Jinou definicí by mohlo být, že Regulární jazyk je takový jazyk, který lze popsat konečným automatem (NDKA / DKA). Pak tedy existuje třída regulárních jazyků REG, která obsahuje všechny regulární jazyky. Při výběru x jazyků třídy REG a provedení určité operace, pak znovu dostaneme jazyk třídy REG.\\
+"Uzavřenost množiny nad operací znamená že výsledek operace s libovolnými prvky z množiny bude opět spadat do dané množiny."\\
+Například můžeme říci, že třída REG je užavřena vůči iteraci. Je jednoduché udělat NDKA popsující iteraci - ergo výsledný jazyk je popsatelný konečným automatem - ergo jazyk je regulární.\\
+Ve zkratce - třída REG je uzavřena vůči (nekompletní výčet) - sjednocení, průniku, doplňku, zřetězení, iteraci, či např. zrcadlení
 \subsection{Regulární výrazy a jejich vztah ke konečným automatům}
-\subsection{Bezkontextové jazyky a gramatiky}
-\subsection{Výpočetní složitost problémů, třídy složitosti}
+Řetězec popisující celou množinu řetězců, konkrétně regulární jazyk.
+\paragraph{Definice regexu}
+\begin{enumerate}
+\item abeceda $\Sigma$
+\item $\varnothing, \in, a $(kde $a \in \sigma $) jsou regulární výrazy
+\item Jestliže $\alpha, \beta$ jsou regulární výrazy, pak i $(\alpha + \beta), (\alpha \cdot \beta), (\alpha*)$ jsou regulární výrazy
+\end{enumerate}
+U $(\alpha \cdot \beta)$ se tečka většinou nepíše (konkatenace) a může se užít přímo $\alpha \beta$.\\
 
+Jelikož regulární výraz i konečný automat oba popisují regulární jazyk, pak můžeme říci, že každý regulární výraz lze převést na konečný automat a naopak.
+\subsection{Bezkontextové jazyky a gramatiky}
+Bezkontextová gramatika je formálně čtveřice $G = (\Pi, \Sigma, S, P)$
+\begin{itemize}
+\item $\Pi$ = množina \textbf{neterminálů} $(A,B,C...)$
+\item $\Sigma$ = množina \textbf{terminálů} = samotné znaky $(a,b,c,.../1,2,3,...)$
+\item $S$ = \textbf{počáteční} neterminál
+\item $P$ = konečná množina přepisovacích \textbf{pravidel}
+\end{itemize}
+Bezkontextový jazyk = jazyk, akceptovaný tzv. zásobníkovým automatem. Jedná se o množinu jazyků jejíž podmnožinou jsou formální jazyky.\\
+Bezkontextový jazyk je množina všech slov generovaná bezkontextovou gramatikou G.\\
+Derivace = posloupnost odvození určitého slova v určité gramatice; rozlišujeme levou a pravou derivaci, dle směru nahrazování neterminálů\\
+Derivační strom = grafická reprezentace derivace.\\
+\textbf{Ekvivalence gramatik} = generují tentýž jazyk; Neexistuje slovo, které by bylo v jedné, ale ne v druhé; Algoritmicky nerozhodnutelné\\
+\textbf{Nejednoznačnost gramatiky} = existují dva různé derivační stromy, jak získat určité slovo v dané gramatice.\\
+\subsection{Výpočetní složitost problémů, třídy složitosti}
+Viz \ref{sec:uti_slozitost} Výpočetní složitost algoritmů, asymptotická notace
 
 \newpage
 \section{Architektury počítačů, Počítačové sítě}
