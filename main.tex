@@ -56,17 +56,17 @@ Booleova algebra je binární algebra (má jen dvě konstanty 0 a 1) a využív�
 Pomocí Booleovy algebry můžeme minimalizovat logické funkce dle daných zákonů a pravidel:
 
 \begin{itemize}
-\item Komutativní: a + b = b + a
-\item Asociativní: a + (b + c) = (a + b) + c
-\item Distributivní: a x (b + c) = (a x b) + (a x c)
+\item Komutativní: $a + b = b + a$
+\item Asociativní: $a + (b + c) = (a + b) + c$
+\item Distributivní: $a \times (b + c) = (a \times b) + (a \times c)$
 \item Indepotentní:
 \begin{itemize}
-\item a + a = a
-\item a x a = a
-\item a + 1 = 1
-\item a x 1 = a
-\item a + 0 = a
-\item a x 0 = 0
+\item $a + a = a$
+\item $a \times a = a$
+\item $a + 1 = 1$
+\item $a \times 1 = a$
+\item $a + 0 = a$
+\item $a \times 0 = 0$
 \end{itemize}
 
 \end{itemize}
@@ -77,12 +77,12 @@ Pro vyjádření pravdivostních hodnot logických funkcí existuje několik met
 \begin{itemize}
 \item Rovnice / předpis funkcí
 \begin{itemize}
-\item P = a x b x c
-\item P nabude stavu log 1 když budou všechny proměné (a,b,c) ve stavu log 1
+\item $P = a \times b \times c$
+\item P nabude stavu log 1 když budou všechny proměnné $(a,b,c)$ ve stavu log 1
 \end{itemize}
 \item Pravdivostní tabulka
 \item Karnaughova mapa
-\item Grafický zápis pravdivostní tabulky, kde každému řádku odpovídá nějaké políčko (2\^N políček, kde N je počet proměných)
+\item Grafický zápis pravdivostní tabulky, kde každému řádku odpovídá nějaké políčko ($2^N$ políček, kde $N$ je počet proměnných)
 \end{itemize}
 
 
@@ -112,8 +112,8 @@ Pro vyjádření pravdivostních hodnot logických funkcí existuje několik met
 \begin{itemize}
 \item k číslu připočítáváme nějakou známou konstantu kterou si stanovíme.
 \item většinou se jedná o konstantu v půlce intervalu. Např. pro 8bitové čísla, která mohou nabývat 256 hodnot, zvolíme hodnotu 128 (10000000).
-\item K čislu, které pak chceme znázornit přičteme stanovenou konstantu.
-\item Kladné čísla pak mají na začátku 1 a záporné 0. (naopak než přímý kod!, vyplývá to z výpočtu)
+\item K číslu, které pak chceme znázornit přičteme stanovenou konstantu.
+\item Kladné čísla pak mají na začátku 1 a záporné 0. (naopak než přímý kód!, vyplývá to z výpočtu)
 \item Nevýhodou tohoto zápisu je, že kladná čísla se liší od bezznaménkové reprezentace čísel.
 \end{itemize}
 
@@ -141,7 +141,7 @@ Desítková váha bitu & 16 & 8  & 4  & 2  & 1  & 0,5 & 0,25 & 0,125 \\
 \subsection{Zobrazení čísel s pohyblivou řádovou čárkou (IEEE 754-2008, binární a decimální základ), aritmetika}
 \begin{itemize}
 \item Pro zobrazení velkých nebo desetinných čísel.
-\item X = S M*$B^E$ (-5.97 x $10^47$)
+\item $X = S M\cdot B^E (-5.97 x 10^47)$
 \begin{itemize}
 \item S je znaménko
 \item M je mantisa (část za desetinnou čárkou)
@@ -202,9 +202,9 @@ Význam & $z^a$ & \multicolumn{2}{c}{Exponent} & \multicolumn{2}{|c}{Mantisa}   
 \begin{itemize}
 \item Sjednocená tabulka všech abeced různých jazyků
 \item V současnosti přes 100.000 znaků, možnost až 1 114 112 znaků do budoucna.
-\item Verze UTF-8, UTF-16, UTF-32, podle počtu bitů sloužícím k zakodování znaku (je to však velikost minimální, některé znaky mohou být kódovány i vyšším počtem bitů.)
+\item Verze UTF-8, UTF-16, UTF-32, podle počtu bitů sloužícím k zakódování znaku (je to však velikost minimální, některé znaky mohou být kódovány i vyšším počtem bitů.)
 \item Výhoda: obsahuje všechny znaky
-\item Nevýhoda: větší velikost a náročnost kodování
+\item Nevýhoda: větší velikost a náročnost kódování
 \item Aktuální verze Unicode 12
 \item Pro kód znaku musí být použita nejkratší možná sekvence bajtů. Počet jedničkových bitů na začátku prvního bajtu ve vícebajtové sekvenci odpovídá počtu bajtů sekvence.
 \end{itemize}
@@ -276,13 +276,13 @@ Náročnost na návrh & Jednoduchý    & Složitý             \\ \hline
 \begin{itemize}
 \item Souhrn technologií pro sítě LAN.
 \item Standard IEEE 802.3
-\item Pojmenování dle formátu: {Mbps|GbpsG} {Base|Broad} {seg\_{}len/100[m] |-medium}. Např.: 10Base-T
+\item Pojmenování dle formátu: \{Mbps$|$GbpsG\} \{Base$|$Broad\} \{seg\_{}len/100[m] $|$-medium\}. Např.: 10Base-T
 \item Koax, TP, Optika.
 \item U Half-Duplexu CSMA/CD (přístup k mediu)
 \begin{enumerate}
 \item Naslouchá, zda je medium volné.
-\item Pokud je volné, tak zahájí vysílaní a naslouchá, jestli nepřichází signál od jiné stanice. Pokud, ano, došlo ke kolizi (více stanic může detekovat volné medium a začít vysílat). Ukončí vysílání a pošle jam signal.
-\item Stanice čeká náhodnou dobu, než se pokusí znovu vysílat. Pokud nastane více po sobě jdoucích kolizí, doba exponenicálně roste.
+\item Pokud je volné, tak zahájí vysílaní a naslouchá, jestli nepřichází signál od jiné stanice. Pokud, ano, došlo ke kolizi (více stanic může detekovat volné medium a začít vysílat). Ukončí vysílání a pošle jam signál.
+\item Stanice čeká náhodnou dobu, než se pokusí znovu vysílat. Pokud nastane více po sobě jdoucích kolizí, doba exponenciálně roste.
 \end{enumerate}
 \item Existuje více verzí rámců. Nejběžnější je DIX/Ethernet II.
 \end{itemize}
@@ -297,7 +297,7 @@ Náročnost na návrh & Jednoduchý    & Složitý             \\ \hline
 \item 10Base5 = Thick Ethernet - 10mm coax, až 500m dlouhé segmenty
 \item 10Base2 = Thin Ethernet - 5mm coax, až 185 dlouhé segmenty
 \item 10Base-T - Topologie hvězda, UTP3 kabely, dosah 100m od hubu
-\item Fast Ethernet - podobné 10Base-T, 100Base-TX(UTP5), 100Base-FX(single/multi modova opticka vlakna)
+\item Fast Ethernet - podobné 10Base-T, 100Base-TX(UTP5), 100Base-FX(single/multi módová optická vlákna)
 \item Gigabit Ethernet - 1000Base-T, 1000Base-SX
 \item 10 Gigabit Ethernet - pouze full duplex(no CSMA/CD), UTP6; 10GBaseT
 \end{itemize}
@@ -321,8 +321,8 @@ Náročnost na návrh & Jednoduchý    & Složitý             \\ \hline
 \item ATM
 \begin{itemize}
 \item používá metodu virtuální cesty
-\item zajišťuje QoS pro přenost hlasu a videa
-\item data přenášena pomocí ATM buňěk na rozdíl od rámců
+\item zajišťuje QoS pro přenos hlasu a videa
+\item data přenášena pomocí ATM buněk na rozdíl od rámců
 \item Využívá transportní síť SDH/SONET
 \item Protokolový model odpovídá prvním 4 vrstvám OSI
 \end{itemize}
@@ -343,7 +343,7 @@ Slouží k vytváření typu bod-bod
 \end{itemize}
 \subsubsection{DWDM}
 \begin{itemize}
-\item Narozdíl od SDH se zde používá multiplexing na bázi vlnových délek
+\item Na rozdíl od SDH se zde používá multiplexing na bázi vlnových délek
 \item Používá mnoho různých vlnových délek v oblasti 1550 nm.
 \item Vychází z WDM zhuštěním vlnových délek (zmenšením rozestupů
 \item Každá vlnová délka = kanál o rychlosti 10Gb/s, experimentálně až 100gb/s/kanál o.O.
@@ -354,13 +354,13 @@ Slouží k vytváření typu bod-bod
 \subsubsection{MPLS}
 \begin{itemize}
 \item Integrace IP a virtuálních kanelů
-\item Hlavní zařízení LSR - Label Switch Router, který hraje roli klasického směrovače a přepínače virtuálních kanelů.
+\item Hlavní zařízení LSR - Label Switch Router, který hraje roli klasického směrovače a přepínače virtuálních kanálů.
 \item Protokol který to zajišťuje je LDP, který vytváří virtuální cestu LSP z jednoho LERu do druhého. LER (Label switch Edge Router) je LSR na hranicích MPLS sítě.
 \end{itemize}
 
 \subsection{Internet, Bezpečné transportní služby (VPN, IPsec, SSL)}
 Základem internetu jsou dvě služby - Webová služba + Internetová transportní síť
-Internet je nejrozsáhlejší síť na světě, nefunguje podle jednotných pravidel, ale nabízí stejné služby všem uživatelům. Je to vlastně síť sítí, přičemž každá z těchto dílčích sítí je správována jiným operátorem - ISP - Internet Service Provider.
+Internet je nejrozsáhlejší síť na světě, nefunguje podle jednotných pravidel, ale nabízí stejné služby všem uživatelům. Je to vlastně síť sítí, přičemž každá z těchto dílčích sítí je spravována jiným operátorem - ISP - Internet Service Provider.
 
 Klasifikace internetu odpovídá klasifikaci ISP providerů. Existují dva druhy klasifikace:
 
@@ -387,7 +387,7 @@ umožňují zabezpečený přenos dat přes veřejnou síť - internet.
 
 \begin{itemize}
 \item Pracuje na \textbf{Síťové vrstvě}
-\item Zabezpečnuje datovou komunikaci v sítích IP
+\item Zabezpečuje datovou komunikaci v sítích IP
 \item Autentizace, Integrita a důvěrnost dat $\leftarrow$ užívá šifrování
 \end{itemize}
 \paragraph{SSL/TLS}
@@ -411,7 +411,7 @@ umožňují zabezpečený přenos dat přes veřejnou síť - internet.
 \item Dva druhy technologií:
 \begin{itemize}
 \item Šifrování dat - zabezpečený kanál s IPsec, SSL
-\item Oddělení provozu - dvě koncové zařízení mají svůj vlastní virtuální kanel, netřeba tak šifrovat.
+\item Oddělení provozu - dvě koncové zařízení mají svůj vlastní virtuální kanál, netřeba tak šifrovat.
 \end{itemize}
 \end{itemize}
 \subsection{Signalizace v telekomunikačních sítích}
@@ -439,7 +439,7 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \item protokoly pro přenos multimediálních dat v reálném čase
 \item protokoly pro zpracování hlasu a videa
 \end{itemize}
-\item Architektura rozdělena do Administrativních domén - kolekce komponent správována tzv. Gatekeeperem
+\item Architektura rozdělena do Administrativních domén - kolekce komponent spravována tzv. Gatekeeperem
 \item Velmi robustní a obtížný protokol na implementaci
 \end{itemize}
 \subsubsection{SIP}
@@ -447,7 +447,7 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \begin{itemize}
 \item Navržený pro snadnou implementaci a rozšiřitelnost. Pracuje na aplikační vrstvě.
 \item Užívá se pro sestavení, modifikaci a ukončení spojení přenosu hlasu přes Internet - VoIP
-\item Ve spojení s ním se ještě užívá RTP (Real-Time Protokol, zajišťuje přenos hlasz v paketech přes IP) a SDP (Session Description Protocol, např volba kodeků pro hovor)
+\item Ve spojení s ním se ještě užívá RTP (Real-Time Protokol, zajišťuje přenos hlasu v paketech přes IP) a SDP (Session Description Protocol, např volba kodeků pro hovor)
 \item Dva základní prvky:
 \begin{itemize}
 \item User Agents - koncové body
@@ -463,7 +463,7 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \subsubsection{xDSL}
 \paragraph{ADSL}
 \begin{itemize}
-\item Metoda datového přenosu po již existujících měďěných symetrických párech
+\item Metoda datového přenosu po již existujících měděných symetrických párech
 \item ATU-R = modem na straně účastníka
 \item ATU-C = modem na straně ústředny - většinou součástí DSLAMu
 \item Splitter = frekvenční filtr pro oddělení telefonních spojení od přenosu dat
@@ -546,8 +546,8 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \item EPON - používá Ethernet rámce
 \end{itemize}
 
-\subsection{Bezdrátové přístupové sítě (WiFi, WIMAX, Bluetooth, Zigbee)}
-\subsubsection{WiFi}
+\subsection{Bezdrátové přístupové sítě (Wi-Fi, WIMAX, Bluetooth, Zigbee)}
+\subsubsection{Wi-Fi}
 
 \begin{itemize}
 \item Standard 802.11; definice dvou spodních vrstev OSI
@@ -561,8 +561,8 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=10cm]{wifiChannels.pdf}
-    \caption{Kanály WiFi}
-    \label{fig:wifiChannels}
+    \caption{Kanály Wi-Fi}
+    \label{fig:Wi-FiChannels}
 \end{figure}
 \subsubsection{WIMAX}
 \begin{itemize}
@@ -573,11 +573,11 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 
 \subsubsection{Bluetooth}
 \begin{itemize}
-\item pracuje spolu s některými wifi zařízeními na kanálu 2,4Ghz
+\item pracuje spolu s některými Wi-Fi zařízeními na kanálu 2,4Ghz
 \item k přeskokům používá FHSS
 \item řazení dle výkonu na 3 třídy(1 - 100mW,2 - 2.5mW a 1mW s resp. dosahem ~100, 10 a 1 metr)
 \item řazení dle standardu na BT1.2, 2.0, 3.0 a dnes 4.0
-\item na rozdíl od wifi a ostatních je nadefinován na všech 7 vrstvách OSI RM
+\item na rozdíl od Wi-Fi a ostatních je nadefinován na všech 7 vrstvách OSI RM
 \end{itemize}
 
 Topologie
@@ -611,7 +611,7 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 \item Změna přístupu na kombinaci TDMA a FDMA
 \item přechod z analogových zařízení na digitální
 \item nové služby jako zprávy a email
-\item zmenšení buněk $\rightarrow$ snížení visílacího výkonu, lepší odolnost a zvýšení bezpečnosti
+\item zmenšení buněk $\rightarrow$ snížení vysílacího výkonu, lepší odolnost a zvýšení bezpečnosti
 \item existují dva mezistupně označované jako 2.5G a 2.75G,resp. GPRS a EDGE = připojení k internetu a později zvýšení rychlosti internetu užitím 8-PSK
 \end{itemize}
 
@@ -625,7 +625,7 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 \subsubsection{3. Generace}
 
 \begin{itemize}
-\item =UMTS
+\item = UMTS
 \item Hlavním rozdílem je, že namísto rádiové přístupové sítě GSM RAN/GERAN se nyní užívá tzv. UTRAN
 \item Orientovány na širokopásmový přenos dat
 \item Plně digitální, značné navýšení rychlosti přenosu dat
@@ -679,7 +679,7 @@ Bluetooth podporuje jak dvoubodovou, tak mnohabodovou komunikaci. Pokud je více
 \item \textbf{Sjednocení} $\rightarrow$ $M \cup N$ = bude obsahovat prvky, které se vyskytují v M nebo v N (tzn. i ty co jsou v obou)
 \item \textbf{Rozdíl} $\rightarrow$ $M - N$ = bude obsahovat prvky, které jsou v M, ale nejsou v N
 \item \textbf{Doplněk} $\rightarrow$ $M'$ = všechny prvky z universa, které M neobsahuje
-\item \textbf{Kartézský součin } $\rightarrow$ $M x N$ = bude obsahovat uspořádané dvojice - první člen z M druhý z N
+\item \textbf{Kartézský součin } $\rightarrow$ $M \times N$ = bude obsahovat uspořádané dvojice - první člen z M druhý z N
 \item \textbf{Potenční množina $2^M$} -
 \end{itemize}
 \end{itemize}
@@ -795,7 +795,7 @@ Normálové formy - specifický tvar formule, který je ekvivalentní k původn�
 \item Operace na jazycích = sjednocení, průnik, doplněk, rozdíl, zřetězení, iterace
 \item Iterace jazyka = zřetězení libovolného počtu (0-n) slov z jazyka
 \item \textbf{Regulární jazyk} = prázdný jazyk + jazyk obsahující právě jeden znak z abecedy + jazyky vzniklé operacemi popsanými výše nad těmito jazyky
-\item Zrcadlový obraz slova w = w\^R je slovo w zapsané "pozpátku" AHOJ $\rightarrow$ JOHA
+\item Zrcadlový obraz slova $w = w^R$ je slovo $w$ zapsané "pozpátku" AHOJ $\rightarrow$ JOHA
 \end{itemize}
 
 \subsubsection{Konečné automaty}
@@ -874,7 +874,7 @@ Zpracovává vstup a generuje výstup
 \item Stroj pracuje po krocích, v každém kroku se nějak změní konfigurace = popis celkového stroje(paměť, stav)
 \item Výpočet algoritmu - začíná se v počáteční konfiguraci, každý krok přejde do jiné konfigurace, výpočet končí v koncové konfiguraci
 \item Invarianta - podmínka, která musí být splněna vždy, na konkrétním místě v algoritmu
-\item např invarianta pro cyklus i=0;while(i<10){i++} je, že 0 >= i <= 10. Jelikož posledním krokem v cyklu bude, že se i nastaví na 10 a kdykoliv to je mimo, to do cyklu vůbec nespadne.
+\item např invarianta pro cyklus $i=0;while(i<10)\{i++\}$ je, že $0 >= i <= 10$. Jelikož posledním krokem v cyklu bude, že se $i$ nastaví na 10 a kdykoliv to je mimo, to do cyklu vůbec nespadne.
 \item pro každý řídící stav (vrchol grafu řídícího toku) lze určit invariantu
 \item Korektnost - Žádná nepovolená operace, výpočet je konečný, výstup odpovídá zadání.
 \end{itemize}
@@ -957,7 +957,7 @@ Příkladem takových to problémů je např. Problém zastavení
 \item Na transportní vrstvě pak buď TCP nebo UDP.
 \begin{itemize}
 \item TCP přebere od aplikační vrstvy data, rozdělí na segmenty, očísluje a seřadí. Provádí kontrolu a vyžaduje potvrzení o příjetí dat pro případ znovu poslání atp.
-\item UDP funguje podobně, ale kašle na kontrolu. Fire-and-forget. Ztráta jednoho packetu je vklidu aka bez jednoho vojáka válka bude. Přenos videa např.
+\item UDP funguje podobně, ale kašle na kontrolu. Fire-and-forget. Ztráta jednoho packetu je v klidu aka bez jednoho vojáka válka bude. Přenos videa např.
 \end{itemize}
 \item Síťová vrstva pak k segmentu přidá hlavičku a vytvoří IP datagram. - provádí tedy adresování a směrování.
 \end{itemize}
@@ -995,14 +995,14 @@ Příkladem takových to problémů je např. Problém zastavení
 
 \begin{itemize}
 \item Nejjednodušší aktivní prvek
-\item Chová se jako opakovač - cokoliv přijde na nějaký port je zopakováno pro všechny proty v něm.
-\item Původně sloužili opakovače u starých sítí při moc dlouhém koaxu, který při své délce už ztrácel signál, tak se tam jebunl opakovač.
+\item Chová se jako opakovač - cokoliv přijde na nějaký port je zopakováno pro všechny porty v něm.
+\item Původně sloužily opakovače u starých sítí při moc dlouhém koaxu, který při své délce už ztrácel signál, tak se tam jebunl opakovač.
 \end{itemize}
 \subsubsection{Přepínač - SWITCH}
 
 \begin{itemize}
 \item Nahradil hub - už skoro ví, co kam posílat a nekopíruje - posílá to na daný interface/port.
-\item Když přijde rámec směrovaný na doposud neznámou adresu (MAC), pošle ho všem a jedna ze stanic se ozve, tím pádem si to doplní do tabulky, na který port/interface to ma příště směrovat.
+\item Když přijde rámec směrovaný na doposud neznámou adresu (MAC), pošle ho všem a jedna ze stanic se ozve, tím pádem si to doplní do tabulky, na který port/interface to má příště směrovat.
 \end{itemize}
 \subsubsection{Směrovač - ROUTER}
 
@@ -1033,9 +1033,9 @@ Příkladem takových to problémů je např. Problém zastavení
 
 \begin{itemize}
 \item Protokol pro vzdálený přístup k emailové schránce.
-\item Narozdíl od POP3 vyžaduje stále připojení.
+\item Na rozdíl od POP3 vyžaduje stále připojení.
 \item Stahuje pouze hlavičky. Obsah až po rozkliku.
-\item Umožnuje více klinetů být připojeno na jednu schránku + udržuje informace o stavu emailu (jestli byl přečtený atp.) + synchronizuje to mezi klienty. (Dobré u service desku třeba?)
+\item Umožňuje více klientů být připojeno na jednu schránku + udržuje informace o stavu emailu (jestli byl přečtený atp.) + synchronizuje to mezi klienty. (Dobré u service desku třeba?)
 \end{itemize}
 \subsubsection{WWW}
 
@@ -1084,7 +1084,7 @@ Příkladem takových to problémů je např. Problém zastavení
 \subsubsection{Útoky na počítačové sítě}
 denial of service (DoS): Cílem útočníka vyčerpání systémových prostředků (paměť, CPU, šířka pásma)síťového prvku nebo serveru a jeho zhroucení nebo změna požadovaného chování Záplava pakety SYN neboli SYN-flood je druh útoku označovaný jako DoS. Útočník pošle posloupnost paketů s příznakem SYN cílovému počítači, ale již dále neodpovídá. Brute Force
 \subsubsection{Packetové filtry}
-\paragraph{ACL}:
+\paragraph{ACL}
 
 \begin{itemize}
 \item nejčastěji na rozhraní směrovačů, filtrace podle informací ze síťové a vyšších vrstev
@@ -1130,7 +1130,7 @@ denial of service (DoS): Cílem útočníka vyčerpání systémových prostřed
     \label{fig:asymSifr}
 \end{figure}
 \subsubsection{Virtual Private Network (VPN)}
-VPN realizuje přenos privátních dat přes veřejnou síťs použitím kryptovacích metod a tunelů Poskytuje autentizaci, integritu dat a utajení. Výhodou cena, flexibilita topologie, odpadá management WAN linek Tunel– virtuální dvoubodové spojení přes veřejnou síť, nese data jednoho protokolu ve druhém protokolu.
+VPN realizuje přenos privátních dat přes veřejnou síť s použitím kryptovacích metod a tunelů Poskytuje autentizaci, integritu dat a utajení. Výhodou cena, flexibilita topologie, odpadá management WAN linek Tunel– virtuální dvoubodové spojení přes veřejnou síť, nese data jednoho protokolu ve druhém protokolu.
 
 \subsection{Architektury počítačů, jejich vlastnosti, principy fungování počítače. Hierarchické uspořádání pamětí v počítači, základní charakteristika jednotlivých pamětí}
 \subsubsection{Architektury počítačů, jejich vlastnosti, principy fungování počítače}
@@ -1139,7 +1139,7 @@ VPN realizuje přenos privátních dat přes veřejnou síťs použitím kryptov
 \item Skládá se z: pamětí, řídící jednotky, aritmeticko-logické jednotky (ALU) a vstupní/výstupní jednotky
 \item Struktura PC je nezávislá na typu řešené úlohy
 \item Následující krok je závislý na předešlém.
-\item Instrukce a data jsou v 1 paměti. (Pozdějí Harvardská koncepce jinak)
+\item Instrukce a data jsou v 1 paměti. (Později Harvardská koncepce jinak)
 \item Program je tvořen posloupností instrukcí, ty jsou volány tak, jak jsou v paměti
 \item Používá se dvojková soustava pro reprezentaci instrukcí, adres, znaků....
 \end{itemize}
@@ -1189,11 +1189,11 @@ VPN realizuje přenos privátních dat přes veřejnou síťs použitím kryptov
 \end{itemize}
 \item PROM, EPROM, EEPROM, FLASH - programovatelné paměti.
 \begin{itemize}
-\item DRAM a SRAM nedrží svůj obsah po odpojení napájení $\rightarrow$ nejsou vhodné pro startovací proces PC $\rightarrow$ protom ROM paměti
+\item DRAM a SRAM nedrží svůj obsah po odpojení napájení $\rightarrow$ nejsou vhodné pro startovací proces PC $\rightarrow$ proto ROM paměti
 \item hlavní náplň těchto pamětí tedy je pamatovat si data i bez napájení
-\item Existují nějaké pojistky, když jsou v puvodnim stavu, tak vedou proud (log 0), když je (programátor) přepálí, tak proud nevedou (log 1)
+\item Existují nějaké pojistky, když jsou v původním stavu, tak vedou proud (log 0), když je (programátor) přepálí, tak proud nevedou (log 1)
 \item Tím pádem po naprogramování do nich (ROM, PROM) už není možný další zápis.
-\item EPROM jsou pak paměti, které jdou přeprogramovat, informace se ukládá pomocí elektrického náboje, který je kvalitne izolován. Je ji možné vymazat UV zářením.
+\item EPROM jsou pak paměti, které jdou přeprogramovat, informace se ukládá pomocí elektrického náboje, který je kvalitně izolován. Je ji možné vymazat UV zářením.
 \item EEPROM pak jdou vymazat elektrickým impulzem. (Electrically Erasable Programmable ROM)
 \item V dnešní době FLASH paměti, což jsou vylepšené EEPROMky, princip stejný.
 \end{itemize}
@@ -1290,7 +1290,7 @@ UV &    &    &    &    &    & I1 & I2 & I3 & I4 & I5  & I6  & I7  & ...
 \item K tomu slouží metoda predikce skoku
 \item ve formátu instrukcí je vyhrazen jeden bit, predikující zda se skok provede, či nikoliv.
 \item Tato predikce může být statická (příslušné bity se vkládají již při kompilaci nebo přímo programátorem) nebo dynamická (predikce se přizpůsobuje aktuálním podmínkám)
-\item Dále existuje jednoduchá jednobitová a přesnější dvoubitová predikce skoku, ta je znázorněna následujícím automatem, kde stav A říka, že se provede skok a stav N že neprovede.
+\item Dále existuje jednoduchá jednobitová a přesnější dvoubitová predikce skoku, ta je znázorněna následujícím automatem, kde stav A říká, že se provede skok a stav N že neprovede.
 \end{itemize}
 \begin{figure}[ht]
     \centering
@@ -1302,8 +1302,8 @@ UV &    &    &    &    &    & I1 & I2 & I3 & I4 & I5  & I6  & I7  & ...
 \subsubsection{Základní charakteristika a principy činnosti procesorů rodiny Intel od Pentia Pro}
 \begin{itemize}
 \item Pentium PRO přináší zásadní konstrukční změny
-\item L2 cache je implementována u procesoru jako samostatný čip se stejnou frekcenví jako procesor
-\item Přechod na RISC architekturu, ale bylo potřeba zachovat kompatibilitu s předchozími procesory $\rightarrow$ k tomu slouží Fetch/Decode jednotka, která dekoduje dané instrukce na 118-bitové RISC instrukce
+\item L2 cache je implementována u procesoru jako samostatný čip se stejnou frekvencí jako procesor
+\item Přechod na RISC architekturu, ale bylo potřeba zachovat kompatibilitu s předchozími procesory $\rightarrow$ k tomu slouží Fetch/Decode jednotka, která dekóduje dané instrukce na 118-bitové RISC instrukce
 \item Instrukce se ukládají do Instruction Poolu (až 40 mikrooperací)
 \item Z tohoto poolu si může jednotka Dispatch/Execute vybírat instrukce mimo pořadí (out-of-order)
 \item Provedené instrukce jsou uloženy zpět do banky odkud jsou pomocí jednotky Retire poslána do registrů a L1 cache.
@@ -1323,9 +1323,9 @@ UV &    &    &    &    &    & I1 & I2 & I3 & I4 & I5  & I6  & I7  & ...
 \begin{itemize}
 \item \textbf{Třída} - blueprint/vzor, podle kterého pak vytváříme instance. Definujeme vlastnosti a chování.
 \item \textbf{Objekt} - jedna instance nějaké třídy.
-\item \textbf{Zapouzdření} - veškeré informace, které nejsou potřebné pro klienty modulů, by měly zůstat skryté. (Když chci řídit auto, stačí mi vědět, že musím otáčet volantem a šlapat plyn, nepotřebuju vědět, jak přesně to funguje).
+\item \textbf{Zapouzdření} - veškeré informace, které nejsou potřebné pro klienty modulů, by měly zůstat skryté. (Když chci řídit auto, stačí mi vědět, že musím otáčet volantem a šlapat plyn, nepotřebuji vědět, jak přesně to funguje).
 \item \textbf{Dědičnost} - založení nové třídy na základě již existující třídy. Základem je rozšíření původní třídy o nové vlastnosti.
-\item \textbf{Polymorfismus} - možnost tříd vystupovat v jiné roli. Např. když mám třídy sjednocené interfacem, můžu pak do nějaké funce jako parametr dát ten interface a fci používat se všemi třídami, které ten interface implementují.
+\item \textbf{Polymorfismus} - možnost tříd vystupovat v jiné roli. Např. když mám třídy sjednocené interfacem, můžu pak do nějaké funkce jako parametr dát ten interface a funkci používat se všemi třídami, které ten interface implementují.
 \end{itemize}
 \subsection{Algoritmy vyhledávání v poli – sekvenční, půlením intervalu, neformální objasnění jejich složitosti}
 \subsubsection{Sekvenční}
@@ -1377,7 +1377,7 @@ Většina třídících algoritmů funguje na principu porovnávání dvou prvk�
 \begin{itemize}
 \item \textbf{Bubble sort}
 \begin{itemize}
-\item Porovnáva dva sousední prvky. Pokud je ten vlevo menší, tak je prohodí a postupuje dál. -$\rightarrow$ "probublává na povrch"
+\item Porovnává dva sousední prvky. Pokud je ten vlevo menší, tak je prohodí a postupuje dál. -$\rightarrow$ "probublává na povrch"
 \item Vnitřní cyklus se provede $(n-1) + (n-2) + (n-3) +.... = (n^2 - n)/2$ což je složitost $n^2$
 \end{itemize}
 \item \textbf{Heapsort}
@@ -1396,7 +1396,7 @@ Většina třídících algoritmů funguje na principu porovnávání dvou prvk�
 \begin{itemize}
 \item \textbf{Merge sort}
 \begin{itemize}
-\item Pracuje na bázi DVOU už sestupně setřízených polí. Říkejme jim A a B, a pak pole C, které bude to nové mergnuté pole.
+\item Pracuje na bázi DVOU už sestupně setříděných polí. Říkejme jim A a B, a pak pole C, které bude to nové mergnuté pole.
 \item Na vstupu je jedno pole, které merge sort sám rekurzivně dělí a sestupně seřadí.
 \item V každém kroku porovnáme první prvky a ten vyšší přesuneme na konec nového pole C.
 \item Tento postup opakujeme tak dlouho, dokud se jedno z polí nevyprázdní a pak ještě přesuneme zbytek toho pole do výsledného pole C.
@@ -1407,16 +1407,16 @@ Většina třídících algoritmů funguje na principu porovnávání dvou prvk�
 \begin{itemize}
 \item Indexováno od 0.
 \item Problém s dynamickou alokací v některých jazycích - nutnost používat pointery.
-\item Je však jednoduché a tím pádem i rychlé, protože prvky jsou v paměti uloženy zasebou, zabírají všechny stejně místa a rychle se k nim přistupuje.
+\item Je však jednoduché a tím pádem i rychlé, protože prvky jsou v paměti uloženy za sebou, zabírají všechny stejně místa a rychle se k nim přistupuje.
 \end{itemize}
 \subsubsection{Seznam}
 \begin{itemize}
 \item Jednotlivé prvky obsahují i ukazatel(referenci) na následující prvek. Poslední prvek ukazuje na NULL
-\item U obousměrného seznamu ukazatel(referenci) i na předcházející prvek. Posledni ukazuje na další NULL. První okazuje na předcházející NULL
+\item U obousměrného seznamu ukazatel(referenci) i na předcházející prvek. Poslední ukazuje na další NULL. První odkazuje na předcházející NULL
 \end{itemize}
 \subsubsection{Fronta}
 \begin{itemize}
-\item Prvky se odebírají v pořadí v jakém přisli - FIFO (First In First Out)
+\item Prvky se odebírají v pořadí v jakém přišly - FIFO (First In First Out)
 \item Většinou funkce - Put a Get. Dále ukazatele na první a poslední prvek (Head, Tail)
 \end{itemize}
 \subsubsection{Zásobník}
@@ -1447,9 +1447,9 @@ Většina třídících algoritmů funguje na principu porovnávání dvou prvk�
 \textbf{TODO WRITE MORE}
 
 \begin{itemize}
-\item Jedná se o uzly, hrany a incidence. Incidence přiřazuje dvoum uzlům nějakou hranu.
-\item Neorinetovaný graf - hraně je přiřazená \textbf{neuspořádaná} dvojice uzlů.
-\item Orientovaný graf - hraně je přiřazena \textbf{uspořádaná} dvojize uzlů.
+\item Jedná se o uzly, hrany a incidence. Incidence přiřazuje dvěma uzlům nějakou hranu.
+\item Neorientovaný graf - hraně je přiřazená \textbf{neuspořádaná} dvojice uzlů.
+\item Orientovaný graf - hraně je přiřazena \textbf{uspořádaná} dvojice uzlů.
 \end{itemize}
 \newpage
 \section{Matematika}
@@ -1462,7 +1462,7 @@ Jakoukoliv soustavu lze rovněž zapsat užitím matice. Počet řádků označu
 Některé rovnice v soustavě mohou být na sobě závislé, resp jedna může být lineární kombinací druhé. Např. 
 \[x + y = 1 \Leftrightarrow 2x + 2y = 2\]
 Takové to rovnice nám nepřidávají novou informaci a stačí nám jedna z nich. V opačném případě nazýváme rovnice lineárně nezávislé.
-atici neobsahující sloupec konstant budu označovat jako matici soustavy A samotný poslední sloupec je v podstatě vektor b, který přidáváme k matici soustavy a dostáváme tak rozšířenou matici soustavy A'. $A' = (A|b)$.
+Matici neobsahující sloupec konstant budu označovat jako matici soustavy A samotný poslední sloupec je v podstatě vektor b, který přidáváme k matici soustavy a dostáváme tak rozšířenou matici soustavy $A'$. $A' = (A|b)$.
 \subsubsection{Počet řešení}
 Uvažujeme soustavu lineárně nezávislých rovnic.
 Frobeniova věta říká: "Soustava má řešení právě tehdy, když hodnost matice soustavy A je stejná jako hodnost rozšířené matice soustavy A' "
@@ -1545,7 +1545,7 @@ Nechť $U, V$ jsou vektorové prostory. Zobrazení $A:U\rightarrow V$ se nazýv�
 \end{enumerate}
 \textbf{Superpozice} = pokud známe už výsledky x a y, tak když chceme počítat f(x+y), stačí sečíst x a y (vyplývá z definice lineárního zobrazení)\par
 Nejrychlejší způsob jak zjistit zda zobrazení NENÍ lineární je podívat se, zda-li po dosazení za všechny proměnné 0, nám vyjde 0. (jelikož 0+0 = 0)... pokud ne tak to není lineární zobrazení, pokud jo, musíme dále ověřovat.\par
-Každé lineární zobrazení je funkcí, ne každá funkce je linární zobrazení. Každé lineární zobrazení lze zapsat maticí (urychluje práci, zapíšu ASAP).\\
+Každé lineární zobrazení je funkcí, ne každá funkce je lineární zobrazení. Každé lineární zobrazení lze zapsat maticí (urychluje práci, zapíšu ASAP).\\
 \textbf{Zobrazení} = mapuje obraz z množiny M na vzor z množiny N\\
 \textbf{Definiční obor} = množina všech vzorů\\
 \textbf{Obor hodnot} = množina všech obrazů
@@ -1763,7 +1763,7 @@ IEEE 802 je skupina standardů pojednávajících o LAN sítích, mezi než pat�
 \item 802.2 - LLC
 \item 802.3 - Ethernet
 \item 802.5 - Token Ring
-\item 802.11 - WiFi
+\item 802.11 - Wi-Fi
 \end{itemize}
 Definuje rozdělení 2. vrstvy OSI-RM na sublayery MAC a LLC.
 \begin{itemize}
@@ -2591,23 +2591,15 @@ OOP != třídy a objekty - představuje přístup, jak správně navrhnout struk
 
 \subsubsection{Model OOP}
 OOP definuje program jako soubor spolupracujících komponent (objektů) s přesně stanoveným chováním a stavem. Metody OOP napodobují vzhled a chování objektu z reálného světa s možností velké abstrakce. Model OOP se skládá z několika následujích konstrukcí:
-
 \paragraph{Objekt} 
 
 Jednotlivé prvky modelované reality (jak data, tak související funkčnost) jsou v programu seskupeny do entit, nazývaných objekty. Objekty si pamatují svůj stav a navenek poskytují operace přístupné jako metody pro volání. Objekt je také instancí třídy.
-
- 
-
 \paragraph{Třída (Class)}
 
 Třída slouží jako šablona pro vytváření instancí tříd - objektů. Seskupuje objekty stejného typu a podchycuje jejich podstatu na obecné úrovni.  (Samotná třída tedy nepředstavuje vlastní informace, jedná se pouze o předlohu; data obsahují až objekty.) Třída definuje data a metody objektů.
-
-
-
 \paragraph{Interface (rozhraní)}
 
 Interface předepisuje třídě, která od ní bude odvozena, jaké metody, případně properties musí implementovat. Odvozený objekt může implementovat i další metody. Interface nedefinuje žádné proměnné - pouze konstanty, ani neobsahuje naimplementované metody - obsahuje pouze abstraktní metody bez jejich implementace (jejich hlavičky). Třída může implementovat libovolný počet rozhraní (narozdíl od dědičnosti). Pokud vytvoříte rozhraní, které dědí od jiného rozhraní, automaticky tak přebírá všechny jeho metody a konstanty.
-
 \paragraph{Abstraktní třída}
 
 Je to takový hybrid mezi rozhraním a klasickou třídou. Od klasické třídy má schopnost implementovat vlastnosti (proměnné) a metody, které se na všech odvozených třídách budou vykonávat stejně. Od rozhraní zase získala možnost obsahovat prázdné abstraktní metody, které si každá odvozená podtřída musí naimplementovat sama. S těmito výhodami má abstraktní třída i pár omezení, a to že jedna podtřída nemůže zdědit víc abstraktních tříd a od rozhraní přebírá omezení, že nemůže vytvořit samostatnou instanci (operátorem new).
@@ -2624,8 +2616,6 @@ Je to takový hybrid mezi rozhraním a klasickou třídou. Od klasické třídy 
 \item do jedné třídy lze implementovat více rozhraní
 \end{itemize}
 \end{enumerate}
- 
-
 \subsubsection{Rysy OOP}
 \paragraph{Abstrakce} Programátor, potažmo program, který vytváří, může abstrahovat od některých detailů práce jednotlivých objektů. Každý objekt pracuje jako černá skříňka, která dokáže provádět určené činnosti a komunikovat s okolím, aniž by vyžadovala znalost způsobu, kterým vnitřně pracuje.
 
@@ -2666,9 +2656,7 @@ Z diagramů komponent pak vyčte a do generovaného kódu přidá požadované k
 Úkolem samotné implementace je pak dopsat těla metod, jejichž chování může být popsáno v diagramu aktivit.
 \subsection{Správa paměti (v jazycích C/C++, JAVA, C\#, Python), virtuální stroj}
 Správa paměti je v informatice soubor metod, které operační systém používá při přidělování operační paměti jednotlivým spuštěným procesům. \\
-
 V jazyce Java i C\# je správa paměti plně automatizovaná. O uvolňování paměti se stará separátní vlákno, které běží s nízkou prioritou a zajišťuje kontinuální sledování nepoužitých bloků paměti. Přidělování paměti se provádí operátorem new.
-
 \subsubsection{Úrovně správy paměti}
 
 \begin{itemize}
@@ -2694,17 +2682,12 @@ V jazyce Java i C\# je správa paměti plně automatizovaná. O uvolňování pa
 \paragraph{Garbage collector (GC)} je obvykle část běhového prostředí (programovacího) jazyka, nebo přídavná knihovna, podporovaná kompilátorem, hardware, operačním systémem, nebo jakoukoli kombinací těchto tří. Má za úkol automaticky určit, která část paměti programu je už nepoužívaná, a připravit ji pro další znovupoužití.
 \subsubsection{Virtuální stroj}
 Virtuální stroj je v informatice software, který vytváří virtualizované prostředí mezi platformou počítače a operačním systémem, ve kterém koncový uživatel může provozovat software na abstraktním stroji.
-
 \paragraph{Hardwarový virtuální stroj}
 Původní význam pro virtuální stroj, někdy nazývaný též hardwarový virtuální stroj, označuje několik jednotlivých totožných pracovních prostředí na jediném počítači, z nichž na každém běží operační systém. Díky tomu může být aplikace psaná pro jeden OS používána na stroji, na kterém běží jiný OS, nebo zajišťuje vykonání sandboxu, který poskytuje větší úroveň izolace mezi procesy než je dosaženo při vykonávání několika procesů najednou (multitasking) na stejném OS.\\
-
 Jedním využitím může být také poskytnutí iluze mnoha uživatelům, že používají celý počítač, který je jejich „soukromým“ strojem, izolovaným od ostatních uživatelů, přestože všichni používají jeden fyzický stroj. Další výhodou může být to, že start (bootování) a restart virtuálního počítače může být mnohem rychlejší, než u fyzického stroje, protože mohou být přeskočeny úkoly jako například inicializace hardwaru.\\
-
 Podobný software je často označován termíny jako virtualizace a virtuální servery. Hostitelský software, který poskytuje tuto schopnost je často označovaný jako hypervisor nebovirtuální strojový monitor (virtual machine monitor).
-
 \paragraph{Aplikační virtuální stroj}
 Dalším významem termínu virtuální stroj je počítačový software, který izoluje aplikace používané uživatelem na počítači. Protože verze virtuálního stroje jsou psány pro různé počítačové platformy, jakákoliv aplikace psaná pro virtuální stroj může být provozována na kterékoli z platforem, místo toho, aby se musely vytvářet oddělené verze aplikace pro každý počítač a operační systém. Aplikace běžící na počítači používá interpret nebo Just in time kompilaci.\\
-
 Jeden z nejlepších známých příkladů aplikace virtuálního stroje je Java Virtual Machine od firmy Sun Microsystem. Java Virtual Machine umí zpracovat mezikód (Java bytecode), který je obvykle vytvořen ze zdrojových kódů programovacího jazyka Java. Díky tomu že je JVM k dispozici na mnoha platformách, je možné aplikaci v Javě vytvořit pouze jednou a spustit na kterékoliv z platforem, pro kterou je vyvinut JVM (např. Windows, Linux).
 \subsection{Podpora paralelního zpracování, vlákna}
 \subsubsection{Paralelní zpracování}
@@ -2715,7 +2698,6 @@ Jeden z nejlepších známých příkladů aplikace virtuálního stroje je Java
 \item Dá se to řešit, několika způsoby, nejideálněji proramovat takovým způsobem, aby k souběhu nedocházelo
 \item Pokud je to ovšem nezbytně nutné a k souběhu docházet bude, musíme použít např. TSL (Test and Set Lock)
 \end{itemize}
-
 \subsubsection{Vlákna}
 \begin{itemize}
 \item Tady ty dílčí části (definované u paralelního zpracování) ovládá jedno nějaké vlákno
@@ -2730,10 +2712,8 @@ Jeden z nejlepších známých příkladů aplikace virtuálního stroje je Java
 \end{itemize}
 \subsubsection{Vlákna v Javě}
 Každé vlákno v Javě je instancí třídy \texttt{java.lang.Thread}. Tato třída zajišťuje spuštění, zastavení a ukončení vlákna. Vlákno musí implementovat metodu run, která definuje činnost vlákna. Této metodě je předáno řízení po spuštění vlákna metodou start.
-
 \paragraph{Životní cyklus} 
 Vlákno v průběhu svého života prochází posloupností následujících stavů:
-
 \begin{itemize}
 \item \textbf{New} - bezprostředně po vytvoření ještě nejsou vláknu přiděleny žádné systémové prostředky, vlákno neběží.
 \item \textbf{Runnable} - po provedené metody start je vlákno připraveno k běhu. V tomto stavu se může nacházet více vláken, ovšem jen jedno z nich (na počítači s jedním procesorem) je ve stavu „běžící“.
@@ -2742,47 +2722,33 @@ Vlákno v průběhu svého života prochází posloupností následujících sta
 \end{itemize}
 \paragraph{Vícevláknové aplikace a ladění}
 Hlavní problémy vícevláknových aplikací souvisí se synchronizací
-
 \begin{itemize}
 \item uváznutí - Deadlock - je situace, kdy úspěšné dokončení první akce je podmíněno předchozím dokončením druhé akce, přičemž druhá akce může být dokončena až po dokončení první akce. Deadlocku můžeme zabránit například tím, že proces musí o všechny prostředky, které potřebuje, zažádat najednou. Buď je všechny dostane, nebo nedostane ani jeden. 
 \item souběh (race conditions) - přístup více vláken ke sdíleným proměnným a alespoň jedno vlákno nevyužívá synchronizačních mechanismů. Vlákno čte hodnotu zatímco jiné vlákno zapisuje. Zápis a čtení nejsou atomické a data mohou být neplatná. K zabránění souběhu se používají zámky (lock), jejichž použitím se zajistí, že jen jedno vlákno může v jeden okamžik přistoupit k označenému resource souboru nebo části kódu.
 \item vyhladovění - Vyhladovění - stav, kdy jsou vláknu neustále odepírány prostředky. Bez těchto prostředků program nikdy nedokončí svůj úkol.
 \end{itemize}
-
 \subsection{Zpracování chyb v moderních programovacích jazycích}
 Výjimky představují určité situace, ve kterých musí být výpočet přerušen a řízení předáno na místo, kde bude provedeno ošetření výjimky a rozhodnutí o dalším pokračování výpočtu. Starší programovací jazyky pro ošetření chyb během výpočtu obvykle žádnou podporu neměly. U všech funkcí, které mohly objevit chybu, bylo třeba stále testovat různé příznaky a speciální návratové hodnoty, kterými se chyba oznamovala, a v případě, že jsme na testování chyby zapomněli, program běžel dál a na chybu v nejlepším případě nereagoval nebo se zhroutil na zcela jiném místě, kde již bylo obtížné zdroj chyby dohledat. \\
-
 Jazyk Java, podobně jako např. C++, využívá pro ošetření výjimek metodu strukturované obsluhy. To znamená, že programátor může pro konkrétní úsek programu specifikovat, jakým způsobem se má konkrétní typ výjimky ošetřit. V případě, že výjimka nastane, vyhledá se vždy nejbližší nadřazený blok, ve kterém je výjimka ošetřena. \\
-
 Výjimky jsou v jazyce Java reprezentovány jako objekty...tyto objekty jsou instancemi tříd odvozených obecně od třídy Throwable se dvěma podtřídami Error a Exception. Každá z těchto podtříd odpovídá jedné skupině výjimek. V první skupině jsou výjimky, jejichž výskyt představuje vážný problém v činnosti aplikace a které by programátor neměl zachycovat. Druhou skupinu tvoří výjimky, jejichž ošetření má smysl - jde například o výjimky jako pokus o otevření neexistujícího souboru, chybný formát čísla apod. Do této skupiny by měly patřit také veškeré výjimky definované uživatelem.
-
 \paragraph{Příkaz try-catch}
 Zpracování výjimky se vždy vztahuje k bloku programu omezenému příkazem try následovaném jedním nebo více bloky catch popisujícími způsob ošetření jednotlivých výjimek. \\
 Potřebujeme-li vyvolat v programu vlastní výjimku, je třeba nejprve vytvořit vhodnou třídu, odvozenou od třídy Exception nebo některé její podtřídy.
-
 \subsection{Princip datových proudů – pro vstup a výstup. Rozdíl mezi znakově a bytově orientovanými datovými proudy}
 Datové proudy (dále jen proudy) jsou sekvence dat. Proud je definován svým vstupem a výstupem, těmi mohou být například soubor na disku, zařízení (vstupní klávesnice nebo myš, výstupní displej) nebo jiný program.
-
 \paragraph{Vstupně–výstupní zařízení (I/O):}
-
 \begin{itemize}
 \item znakové: vstupní – klávesnice, výstupní – monitor, tiskárna.
 \item bloková: pevný disk,flash disk, SD, microSD
 \end{itemize}
-
 Z klávesnice čteme sekvenčně znak po znaku (\textbf{sekvenční přístup}), u binárního diskového souboru můžeme libovolně přistupovat ke zvolené části dat – \textbf{náhodný přístup}.\\
-
 Primitivní proudy pouze přenášejí binární data, specializované proudy umí s přenášenými daty manipulovat. Tyto manipulační schopnosti se liší podle typu přenášených dat.
-
 \paragraph{Typy přenášených informací:}
-
-
 \begin{itemize}
 \item binární data – obrázky, zvuk, objekty, ... - data uložené ve stejné formě v jaké jsou uloženy v počítači
 \item textová data – představují řádky textů v ASCII nebo UNICODE
 \end{itemize}
 \subsubsection{Typy proudů}
-
 \paragraph{Znakové proudy}
 \begin{itemize}
 \item posloupnost 16-bitových znaků UNICODE
