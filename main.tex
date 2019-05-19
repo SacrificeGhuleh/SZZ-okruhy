@@ -100,12 +100,12 @@ Pro vyjádření pravdivostních hodnot logických funkcí existuje několik met
 \subsubsection{Dvojkový doplněk}
 \begin{itemize}
 \item Dvojkový doplňkový kód je nejrozšířenějším způsobem reprezentace celých čísel se znaménkem v počítači.
-\item Způsob kódování celých čísel tak, že ALU používá stejné aritmetické algoritmy pro kladné/záporné čísla, ale jinak je čte.
+\item Způsob kódování celých čísel tak, že ALU používá stejné aritmetické algoritmy pro kladná/záporná čísla, ale jinak je čte.
 \item Odstraňuje problém s kladnou a zápornou nulou
 \item Odečítání se realizuje jako: první číslo + dvojkový doplněk druhého čísla
 \item Při použití dvojkového doplňku se opačné číslo získá tak, že se znegují všechny bity čísla a k výsledku se přičte jednička
 \item Příklad:
-\item 0111 nebo-li číslo 7
+\item 0111 neboli číslo 7
 \item provedeme negaci bitů: 1000
 \item Přičteme 1: 1001 a máme -7
 \end{itemize}
@@ -228,7 +228,7 @@ U+04000000 - U+7FFFFFFF & 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 
 \subsection{Automat s konečným počtem stavů, Moore a Mealy automat}
 \subsubsection{Automat s konečným počtem stavů}
 \begin{itemize}
-\item Nebo-li DFA $\rightarrow$ UTI
+\item Neboli DFA $\rightarrow$ UTI
 \item FSM $\rightarrow$ Finite State Machine
 \item DSM $\rightarrow$ Deterministický Stavový Automat
 \end{itemize}
@@ -562,7 +562,7 @@ Signalizace se užívá pro výstavbu a pro rozpad spojení mezi ústřednami a 
 \end{itemize}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=10cm]{wifiChannels.pdf}
+    \includegraphics[width=10cm]{wifiChannels.png}
     \caption{Kanály Wi-Fi}
     \label{fig:Wi-FiChannels}
 \end{figure}
@@ -1489,22 +1489,22 @@ Existují 3 základní ekvivalentní operace, které používáme k řešení so
 \paragraph{Gauss-Jordanova metoda}
 Postup shodný s Gaussovou eliminační metodou, avšak nekončíme na schodkovém tvaru,ale pokračujeme do tzv. normovaného schodkového tvaru (A = I = jednotková matice)
 \begin{equation}
-\begin{bmatrix}
-1 & 0 & 1 &\aug& 4\\ 
-0 & 1 & 1 &\aug& 0\\ 
-0 & 0 & 1 &\aug& 2
-\end{bmatrix} 
+\left[{\begin{array}{ccc|r} 
+1 & 0 & 1 & 4\\ 
+0 & 1 & 1 & 0\\ 
+0 & 0 & 1 & 2 
+\end{array}}\right]
 \begin{matrix}
 -r_3\\ 
 -r_3\\ 
 ~
 \end{matrix} 
-\mapsto
-\begin{bmatrix}
-1 & 0 & 0 &\aug& 2\\ 
-0 & 1 & 0 &\aug& -2\\ 
-0 & 0 & 1 &\aug& 2
-\end{bmatrix}   
+\mapsto 
+\left[{\begin{array}{ccc|r}
+1 & 0 & 0 & 2\\ 
+0 & 1 & 0 & -2\\ 
+0 & 0 & 1 & 2 
+\end{array}}\right] 
 \end{equation}
 
 \paragraph{Cramerovo pravidlo}
@@ -1594,7 +1594,7 @@ $\displaystyle f(x) = cotg(x)$    & $\displaystyle \mathbb{R} - k \pi$  & $\disp
 \item Pod pojmem (určitý) integrál rozumíme obsah plochy ve dvojrozměrné rovině, který je omezen grafem funkce \textit{f}, osou \textit{x} a svislými přímkami \textit{x = a} a \textit{x = b}.
 \begin{figure}[ht]
     \centering
-    \includegraphics[width = 5cm]{Integral_as_region_under_curve.pdf}
+    \includegraphics[width = 5cm]{Integral_as_region_under_curve.png}
     \caption{Ukázka určitého integrálu}
     \label{fig:Integral_as_region_under_curve}
 \end{figure}
