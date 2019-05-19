@@ -14,11 +14,13 @@
 \usepackage{amssymb}
 \usepackage{tikz}
 \makeatletter
-\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
-\makeatother
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
 \setlength{\cftsubsecnumwidth}{3em}% Set length of number width in ToC for \subsection
 \setlength{\cftsubsubsecnumwidth}{4em}% Set length of number width in ToC for \subsubsection
 \author{}
@@ -1487,10 +1489,10 @@ Existují 3 základní ekvivalentní operace, které používáme k řešení so
 \paragraph{Gauss-Jordanova metoda}
 Postup shodný s Gaussovou eliminační metodou, avšak nekončíme na schodkovém tvaru,ale pokračujeme do tzv. normovaného schodkového tvaru (A = I = jednotková matice)
 \begin{equation}
-\begin{bmatrix}[ccc|r]
-1 & 0 & 1 & 4\\ 
-0 & 1 & 1 & 0\\ 
-0 & 0 & 1 & 2
+\begin{bmatrix}
+1 & 0 & 1 &\aug& 4\\ 
+0 & 1 & 1 &\aug& 0\\ 
+0 & 0 & 1 &\aug& 2
 \end{bmatrix} 
 \begin{matrix}
 -r_3\\ 
@@ -1498,10 +1500,10 @@ Postup shodný s Gaussovou eliminační metodou, avšak nekončíme na schodkov�
 ~
 \end{matrix} 
 \mapsto
-\begin{bmatrix}[ccc|r]
-1 & 0 & 0 & 2\\ 
-0 & 1 & 0 & -2\\ 
-0 & 0 & 1 & 2
+\begin{bmatrix}
+1 & 0 & 0 &\aug& 2\\ 
+0 & 1 & 0 &\aug& -2\\ 
+0 & 0 & 1 &\aug& 2
 \end{bmatrix}   
 \end{equation}
 
@@ -1610,7 +1612,7 @@ $\displaystyle f(x) = cotg(x)$    & $\displaystyle \mathbb{R} - k \pi$  & $\disp
                                      & Permutace bez opakování & $\displaystyle P(n) = V(n, n) = n!$ \\
                                      & Permutace s opakováním  & $\displaystyle P'(n_1,n_2,...,n_k) = \frac{ n!}{n_1!\cdot{}n_2!\cdot{}...\cdot{}n_k!}$ \\
 \multirow{2}{*}{Neuspořádané výběry} & Kombinace bez opakování & $\displaystyle C(k, n) = \frac{n!}{(n-k)!\cdot k!}$ \\
-                                     & Kombinace s opakováním  & $\displaystyle C'(k, n) = \genfrac(){0pt}{0}{n+k-1}{k}$ \\ 
+                                     & Kombinace s opakováním  & $\displaystyle C'(k, n) = \genfrac{(}{)}{0pt}{0}{n+k-1}{k}$ \\ 
 \hline
 \end{tabular}
 \caption{Vzorce kombinatorických výběrů}
